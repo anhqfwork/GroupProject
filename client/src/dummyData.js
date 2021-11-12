@@ -38,7 +38,7 @@ const cart = {
 const products = [
     {
         title: 'Book one',
-        img: 'https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png',
+        img: 'https://pub-static.fotor.com/assets/projects/pages/60d3cc50363a48d2a1825b7e90d49963_thumb.jpg',
         price: 20,
     },
     {
@@ -148,7 +148,23 @@ const reviews = [
     },
 ]
 
+//Images for Slideshow
+const imgSlide = [
+    {
+        id: 1,
+        image: 'https://static.vecteezy.com/system/resources/previews/000/833/391/non_2x/horizontal-poster-with-open-book-and-space-scene-vector.jpg'
+    },
+    {
+        id:2,
+        image: 'https://cdn.xxl.thumbs.canstockphoto.com/i-love-cooking-poster-i-love-cooking-poster-baking-tools-in-circle-shape-poster-with-hand-drawn-eps-vector_csp57538089.jpg',
+    },
+    {
+        id:3,
+        image: 'https://previews.123rf.com/images/seamartini/seamartini2001/seamartini200100970/137930644-bookstore-sketch-poster-vintage-books-fair-and-literature-festival-vector-book-store-edition-antiqua.jpg',
+    }
+]
+
 const categories = ['Manga', 'Light Novel', 'Novel', 'Detective']
 const publishers = ['KimDong', 'IPM', 'Tre', 'Amak', 'NhaNam']
 
-export { currentUser, cart, products, product, newestProducts, reviews, categories, publishers, relatedProducts }
+export { currentUser, cart, products, product, newestProducts, reviews, categories, publishers, relatedProducts, imgSlide }
