@@ -1,0 +1,181 @@
+.profile-container{
+    flex-grow: 1;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: #eeecec;  
+}
+
+.header h2{
+    margin-bottom: 16px;
+    font-size: 20px;
+}  
+
+.account-container{
+    width: 100%;
+    flex-flow: row;
+    font-size: large;
+    line-height: 100px;
+}
+
+.customer-info{
+    background-color: white;
+    padding: 10px 10px;
+}
+
+.form-name{
+    padding: 10px 20px;
+    border-radius: 0px;
+    margin-left: 90px;
+    outline: none;
+    font-size: 18px;
+    margin-bottom: 0px;
+    border: 2px solid rgb(179, 179, 179);
+    width: 25%;
+}
+
+.form-phonenumber{
+    padding: 10px 20px;
+    border-radius: 0px;
+    margin-left: 16px;
+    outline: none;
+    font-size: 18px;
+    margin-bottom: 0px;
+    border: 2px solid rgb(179, 179, 179);
+    width: 25%;
+}
+
+.form-email{
+    padding: 10px 20px;
+    border-radius: 0px;
+    margin-left: 95px;
+    outline: none;
+    font-size: 18px;
+    margin-bottom: 0px;
+    border: 2px solid rgb(179, 179, 179);
+    width: 25%;
+}
+
+.form-address{
+    padding: 10px 20px;
+    border-radius: 0px;
+    margin-left: 73px;
+    outline: none;
+    font-size: 18px;
+    margin-bottom: 0px;
+    border: 2px solid rgb(179, 179, 179);
+    width: 25%;
+}
+
+.radio-button {
+    position: relative;
+    left: 78px;
+    top: 1.5px;
+    padding-left: 40px;
+    padding-right: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+.radio-button input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+  
+.checkmark {
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+  
+.radio-button:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+  
+.radio-button input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+  
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+  
+.radio-button input:checked ~ .checkmark:after {
+    display: block;
+}
+  
+.radio-button .checkmark:after {
+       top: 9px;
+      left: 9px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: white;
+}
+
+.custom-select {
+    position: relative;
+    font-family: Arial;
+}
+  
+.custom-select select {
+    display: none; 
+}
+  
+.select-selected {
+    background-color: DodgerBlue;
+}
+  
+.select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+}
+  
+.select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+}
+
+.select-items div,.select-selected {
+    color: #ffffff;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+    user-select: none;
+}
+
+.select-items {
+    position: absolute;
+    background-color: DodgerBlue;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+  
+.select-hide {
+    display: none;
+}
+  
+.select-items div:hover, .same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+}
