@@ -69,7 +69,7 @@ const Cart = () => {
                         {cartItems.map((item) => {
                             return (
                                 <TableRow>
-                                    <TableCell padding='checkbox' sx={{width:150}}>
+                                    <TableCell padding='checkbox' sx={{width:150, paddingTop:2}}>
                                         <img src={item.product.img} alt={item.product.title}/>
                                         <p>{item.product.title}</p>
                                     </TableCell>

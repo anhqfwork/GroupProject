@@ -62,7 +62,7 @@ const Header = () => {
                         <div className='dropdown-contents'>
                             {categories.map((cate) => {
                                 return (
-                                    <a href={`/products/${cate}`}>{cate}</a>
+                                    <a href={`/products`}>{cate}</a>
                                 )
                             })}
                         </div>

@@ -90,6 +90,7 @@ const Product = () => {
                 </div>
             </div>
             <div className="slider-container">
+                <h3>Related products</h3>
                 <Slider {...settings} responsive={responsive} className="slider">
                     {relatedProducts.map((book) => {
                     return (

@@ -4,20 +4,21 @@ Variables
 ===============
 */
 :root {
-  --clr-primary: #34a1eb;
-  --clr-pri-hover: #558eff;
-  --clr-pri-light: #a9c1fd;
-  --clr-pri-lightest: #ebf0ff;
-  --clr-pri-dark: #1f58e7;
-  --clr-pri-darkest: #00334d;
-  --clr-blue-bg: #d5ebf7;
-  --clr-grey-bg: #f6f8fb;
-  --clr-grey: #cacccf;
-  --clr-grey-dark: #919191;
+  --clr-primary: #2196f3;
+  --clr-pri-hover: #4dabf5;
+  --clr-pri-light: #90caf9;
+  --clr-pri-lightest: #bbdefb;
+  --clr-pri-dark: #1769aa;
+  --clr-pri-darkest: #0d47a1;
+  --clr-blue-bg: #e3f2fd;
+  --clr-grey-bg: #f9f9f9;
+  --clr-grey: #9e9e9e;
+  --clr-grey-light: #f1f1f1;
+  --clr-grey-dark: #424242;
   --clr-white: #fff;
-  --clr-red: rgb(248, 74, 74);
-  --clr-red-dark: hsl(360, 67%, 44%);
-  --clr-red-light: rgb(238, 143, 143);
+  --clr-red: #f44336;
+  --clr-red-dark: #b71c1c;
+  --clr-red-light: #e57373;
   --clr-black: #222;
 
   --transition: all 0.3s linear;
@@ -25,13 +26,14 @@ Variables
   --radius: 0.3rem;
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 
   --columns: 3;
-  --yellow: #fbf4a3;
-  --pink: #f8bed8;
-  --blue: #a2dcf8;
-  --green: #c0f8dc;
-  --p: #d4c0f8;
+  --yellow: #fff59d;
+  --pink: #f48fb1;
+  --blue: #81d4fa;
+  --green: #a5d6a7;
+  --purple: #d4c0f8;
 }
 
 *,
@@ -115,16 +117,13 @@ header {
   color: var(--clr-primary);
 }
 .nav-toggle {
-  color: black;
-}
-.nav-toggle:hover {
-  color: var(--clr-pri-dark);
+  color: var(--clr-black);
 }
 .nav-bar {
   display: none;
 }
 .navlink:hover {
-  color: var(--clr-pri-darkest);
+  color: var(--clr-pri-dark);
 }
 .cart-toggle {
   display: none;
@@ -140,25 +139,26 @@ header {
   padding: 5px;
   width: 75%;
   height: 100%;
-  background: #ffffff;
-  border: 1px solid #d5d5d5;
+  background: var(--clr-white);
+  border: 1px solid var(--clr-grey);
   box-sizing: border-box;
-  border-radius: 5px;
   font-size: 14px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 .search-bar:focus,
 .search-bar:hover {
   outline: none;
-  background: whitesmoke;
+  background: var(--clr-grey-bg);
 }
 .search-btn {
   height: 100%;
   padding: 0px 10px;
   font-size: 16px;
-  border: none;
+  border: 1px solid var(--clr-primary);
   cursor: pointer;
   display: flex;
-  color: white;
+  color: var(--clr-white);
   align-items: center;
   border-top-right-radius: var(--radius);
   border-bottom-right-radius: var(--radius);
@@ -166,7 +166,8 @@ header {
   transition: var(--transition);
 }
 .search-btn:hover {
-  background-color: rgb(66, 105, 189);
+  background-color: var(--clr-pri-hover);
+  border: 1px solid var(--clr-pri-hover);
 }
 .dropdown {
   position: relative;
@@ -176,22 +177,22 @@ header {
   display: none;
   position: absolute;
   padding-top: 6px;
-  background-color: #f9f9f9;
+  background-color: var(--clr-grey-bg);
   width: 130px;
   height: fit-content;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--box-shadow);
   z-index: 1;
 }
 .dropdown-contents a {
   padding: 5px 10px;
   display: block;
-  color: #222;
+  color: var(--clr-black);
   font-size: 18px;
   transition: var(--transition);
 }
 .dropdown-contents a:hover {
   color: var(--clr-primary);
-  background-color: #f1f1f1;
+  background-color: var(--clr-grey-light);
 }
 .dropdown:hover .dropdown-contents {
   display: block;
@@ -211,14 +212,13 @@ Sidebar
   font-size: 1.75rem;
   background: transparent;
   border-color: transparent;
-  color: hsl(205, 78%, 60%);
   transition: all 0.3s linear;
   cursor: pointer;
-  color: hsl(360, 67%, 44%);
+  color: var(--clr-red-dark);
   margin-top: 0.2rem;
 }
 .close-btn:hover {
-  color: hsl(360, 71%, 66%);
+  color: var(--clr-red-light);
 }
 .links a {
   display: flex;
@@ -259,7 +259,7 @@ Sidebar
   width: 400px;
   height: 100%;
   z-index: 1;
-  background: white;
+  background: var(--clr-white);
   display: grid;
   grid-template-rows: auto 1fr auto;
   row-gap: 1rem;

@@ -122,47 +122,47 @@ Book List
   background-image: linear-gradient(
       -45deg,
       var(--blue) 53.5%,
-      var(--p) 53.5%,
-      var(--p) 60%,
+      var(--purple) 53.5%,
+      var(--purple) 60%,
       var(--blue) 60%
     ),
     linear-gradient(
       45deg,
       var(--blue) 53.5%,
-      var(--p) 53.5%,
-      var(--p) 60%,
+      var(--purple) 53.5%,
+      var(--purple) 60%,
       var(--blue) 60%
     );
 }
 
 .book:nth-child(7n)::after,
 .book:nth-child(7n-4)::after {
-  background-image: linear-gradient(45deg, var(--blue) 40%, var(--p) 40%),
-    linear-gradient(-45deg, var(--blue) 40%, var(--p) 40%);
+  background-image: linear-gradient(45deg, var(--blue) 40%, var(--purple) 40%),
+    linear-gradient(-45deg, var(--blue) 40%, var(--purple) 40%);
 }
 
 .book:nth-child(9n)::before,
 .book:nth-child(9n-5)::before {
   background-image: linear-gradient(
       -45deg,
-      var(--p) 53.5%,
+      var(--purple) 53.5%,
       var(--green) 53.5%,
       var(--green) 60%,
-      var(--p) 60%
+      var(--purple) 60%
     ),
     linear-gradient(
       45deg,
-      var(--p) 53.5%,
+      var(--purple) 53.5%,
       var(--green) 53.5%,
       var(--green) 60%,
-      var(--p) 60%
+      var(--purple) 60%
     );
 }
 
 .book:nth-child(9n)::after,
 .book:nth-child(9n-5)::after {
-  background-image: linear-gradient(45deg, var(--p) 40%, var(--green) 40%),
-    linear-gradient(-45deg, var(--p) 40%, var(--green) 40%);
+  background-image: linear-gradient(45deg, var(--purple) 40%, var(--green) 40%),
+    linear-gradient(-45deg, var(--purple) 40%, var(--green) 40%);
 }
 
 .book img {

@@ -8,8 +8,8 @@ import Products from "./components/body/Products/Products"
 import Product from "./components/body/Product/Product"
 import Cart from "./components/body/Cart/Cart"
 import About from "./components/body/About/About"
-import Profile from "./components/profile/profile"
-import Contact from "./components/contact/contact"
+import Profile from "./components/body/Profile/Profile"
+import Contact from "./components/body/Contact/Contact"
 
 function App() {
     return (
