@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import "./userList.css";
+import "./employeeList.css";
 import {
   DataGrid,
   GridToolbarDensitySelector,
   GridToolbarFilterButton,
 } from "@material-ui/data-grid";
+import { allEmployees } from "../../dummyData";
+import { Link } from "react-router-dom";
 import { IconButton } from "@material-ui/core";
 import { DeleteOutline, Delete, Clear, Search } from "@material-ui/icons";
-import { allUsers } from "../../dummyData";
-import { Link } from "react-router-dom";
 import { createStyles, makeStyles } from "@material-ui/styles";
 import { createTheme, TextField } from "@material-ui/core";
 function escapeRegExp(value) {
@@ -73,15 +73,14 @@ function QuickSearchToolbar(props) {
     </div>
   );
 }
-
-export default function UserList() {
-  const [data, setData] = useState(allUsers);
+function EmployeeList() {
+  const [data, setData] = useState(allEmployees);
   const [selectionModel, setSelectionModel] = React.useState([]);
   const [searchText, setSearchText] = React.useState("");
   const requestSearch = (searchValue) => {
     setSearchText(searchValue);
     const searchRegex = new RegExp(escapeRegExp(searchValue), "i");
-    const filteredRows = allUsers.filter((row) => {
+    const filteredRows = allEmployees.filter((row) => {
       return Object.keys(row).some((field) => {
         return searchRegex.test(row[field].toString());
       });
@@ -95,7 +94,7 @@ export default function UserList() {
   const columns = [
     {
       field: "delete",
-      flex: 0.5,
+      width: 70,
       disableColumnMenu: true,
       sortable: false,
       filterable: false,
@@ -115,11 +114,11 @@ export default function UserList() {
         );
       },
     },
-    { field: "id", headerName: "ID", flex: 0.7 },
+    { field: "id", headerName: "ID", width: 100, disableColumnMenu: true },
     {
-      field: "user",
+      field: "avatar",
       headerName: "Avatar",
-      flex: 1,
+      width: 100,
       align: "center",
       headerAlign: "center",
       disableColumnMenu: true,
@@ -127,34 +126,51 @@ export default function UserList() {
       filterable: false,
       renderCell: (params) => {
         return (
-          <div className="userListUser">
-            <img src={params.row.avatar} alt="" className="userListImg" />
+          <div className="employeeListItem">
+            <img src={params.row.avatar} alt="" className="employeeListImg" />
           </div>
         );
       },
     },
-    { field: "username", headerName: "User", flex: 1 },
-    { field: "email", headerName: "Email", flex: 1 },
+    {
+      field: "username",
+      headerName: "Employee",
+      width: 140,
+      disableColumnMenu: true,
+    },
+    {
+      field: "email",
+      headerName: "Email",
+      width: 100,
+      disableColumnMenu: true,
+    },
     {
       field: "phoneNumber",
       headerName: "Phone",
-      flex: 1,
+      width: 100,
+      disableColumnMenu: true,
+    },
+    {
+      field: "isAdmin",
+      headerName: "Admin",
+      width: 100,
+      disableColumnMenu: true,
     },
     {
       field: "action",
       headerName: "Action",
-      flex: 1,
+      width: 100,
       disableColumnMenu: true,
       sortable: false,
       filterable: false,
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/user/" + params.row.id}>
-              <button className="userListEdit">Edit</button>
+            <Link to={"/employee/" + params.row.id}>
+              <button className="employeeListEdit">Edit</button>
             </Link>
             <DeleteOutline
-              className="userListDelete"
+              className="employeeListDelete"
               onClick={() => handleDelete(params.row.id)}
             />
           </>
@@ -162,13 +178,12 @@ export default function UserList() {
       },
     },
   ];
-
   return (
-    <div className="userList">
-      <div className="userListManage">
-        <span className="userListManageTitle">Users</span>
-        <Link to="/newUser">
-          <button className="userListAddButton">Create</button>
+    <div className="employeeList">
+      <div className="employeeListManage">
+        <span className="employeeListManageTitle">Employees</span>
+        <Link to="/newEmployee">
+          <button className="employeeAddButton">Create</button>
         </Link>
       </div>
       <DataGrid
@@ -193,3 +208,5 @@ export default function UserList() {
     </div>
   );
 }
+
+export default EmployeeList;

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import "./userList.css";
+import "./orderList.css";
 import {
   DataGrid,
   GridToolbarDensitySelector,
   GridToolbarFilterButton,
 } from "@material-ui/data-grid";
+import { orders } from "../../dummyData";
+import { Link } from "react-router-dom";
 import { IconButton } from "@material-ui/core";
 import { DeleteOutline, Delete, Clear, Search } from "@material-ui/icons";
-import { allUsers } from "../../dummyData";
-import { Link } from "react-router-dom";
 import { createStyles, makeStyles } from "@material-ui/styles";
 import { createTheme, TextField } from "@material-ui/core";
 function escapeRegExp(value) {
@@ -73,15 +73,14 @@ function QuickSearchToolbar(props) {
     </div>
   );
 }
-
-export default function UserList() {
-  const [data, setData] = useState(allUsers);
+function OrderList() {
+  const [data, setData] = useState(orders);
   const [selectionModel, setSelectionModel] = React.useState([]);
   const [searchText, setSearchText] = React.useState("");
   const requestSearch = (searchValue) => {
     setSearchText(searchValue);
     const searchRegex = new RegExp(escapeRegExp(searchValue), "i");
-    const filteredRows = allUsers.filter((row) => {
+    const filteredRows = orders.filter((row) => {
       return Object.keys(row).some((field) => {
         return searchRegex.test(row[field].toString());
       });
@@ -95,7 +94,7 @@ export default function UserList() {
   const columns = [
     {
       field: "delete",
-      flex: 0.5,
+      flex: 0.7,
       disableColumnMenu: true,
       sortable: false,
       filterable: false,
@@ -115,46 +114,40 @@ export default function UserList() {
         );
       },
     },
-    { field: "id", headerName: "ID", flex: 0.7 },
+    { field: "id", headerName: "ID", flex: 0.7, disableColumnMenu: true },
     {
-      field: "user",
-      headerName: "Avatar",
-      flex: 1,
-      align: "center",
-      headerAlign: "center",
+      field: "userId",
+      headerName: "UserID",
+      flex: 0.7,
       disableColumnMenu: true,
-      sortable: false,
-      filterable: false,
-      renderCell: (params) => {
-        return (
-          <div className="userListUser">
-            <img src={params.row.avatar} alt="" className="userListImg" />
-          </div>
-        );
-      },
     },
-    { field: "username", headerName: "User", flex: 1 },
-    { field: "email", headerName: "Email", flex: 1 },
     {
-      field: "phoneNumber",
-      headerName: "Phone",
-      flex: 1,
+      field: "status",
+      headerName: "Status",
+      flex: 0.7,
+      disableColumnMenu: true,
+    },
+    {
+      field: "price",
+      headerName: "Price",
+      flex: 0.7,
+      disableColumnMenu: true,
     },
     {
       field: "action",
       headerName: "Action",
-      flex: 1,
+      flex: 2,
       disableColumnMenu: true,
       sortable: false,
       filterable: false,
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/user/" + params.row.id}>
-              <button className="userListEdit">Edit</button>
+            <Link to={"/order/" + params.row.id}>
+              <button className="orderListEdit">Edit</button>
             </Link>
             <DeleteOutline
-              className="userListDelete"
+              className="orderListDelete"
               onClick={() => handleDelete(params.row.id)}
             />
           </>
@@ -162,14 +155,10 @@ export default function UserList() {
       },
     },
   ];
-
   return (
-    <div className="userList">
-      <div className="userListManage">
-        <span className="userListManageTitle">Users</span>
-        <Link to="/newUser">
-          <button className="userListAddButton">Create</button>
-        </Link>
+    <div className="orderList">
+      <div className="orderListManage">
+        <span className="orderListManageTitle">Orders</span>
       </div>
       <DataGrid
         rows={data}
@@ -193,3 +182,5 @@ export default function UserList() {
     </div>
   );
 }
+
+export default OrderList;

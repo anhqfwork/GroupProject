@@ -43,20 +43,23 @@ export default function Sidebar() {
                 Products
               </li>
             </Link>
-
-            <li className="sidebarListItem">
-              <AttachMoney className="sidebarIcon" />
-              Orders
-            </li>
+            <Link to="/orders" className="link">
+              <li className="sidebarListItem">
+                <AttachMoney className="sidebarIcon" />
+                Orders
+              </li>
+            </Link>
           </ul>
         </div>
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Staff</h3>
           <ul className="sidebarList">
-            <li className="sidebarListItem">
-              <WorkOutlined className="sidebarIcon" />
-              Manage
-            </li>
+            <Link to="/employees" className="link">
+              <li className="sidebarListItem">
+                <WorkOutlined className="sidebarIcon" />
+                Employees
+              </li>
+            </Link>
           </ul>
         </div>
       </div>

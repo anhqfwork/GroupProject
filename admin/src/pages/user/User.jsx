@@ -24,8 +24,7 @@ export default function User() {
               className="userShowImg"
             />
             <div className="userShowTopTitle">
-              <span className="usrShowUsername">Anna Becker</span>
-              <span className="usrShowUserTitle">Software Engineer</span>
+              <span className="userShowUsername">Anna Becker</span>
             </div>
           </div>
           <div className="userShowBottom">
