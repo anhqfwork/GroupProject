@@ -6,6 +6,7 @@ import Home from "./components/body/Home/Home"
 import Footer from "./components/footer/Footer"
 import Products from "./components/body/Products/Products"
 import Profile from "./components/profile/profile"
+import Contact from "./components/contact/contact"
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                 </Route>
                 <Route element={<Profile />} path="/profile">
                 </Route>
+                <Route element={<Contact />} path="/contact"></Route>
             </Routes>
             <Footer />
         </Router>
