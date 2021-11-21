@@ -1,7 +1,10 @@
 import React from "react";
 import './Cart.css'
-import { cart, products } from "../../../dummyData";
+import { Button, ButtonGroup, IconButton, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
+import { cart } from "../../../dummyData";
 import DeleteIcon from '@mui/icons-material/Delete';
+import AddIcon from '@mui/icons-material/Add'
+import RemoveIcon from '@mui/icons-material/Remove'
 
 const Cart = () => {
     const cartItems = cart.cartItems;
@@ -14,7 +17,7 @@ const Cart = () => {
                 <input id="promo-code" type="text" name="promo-code" maxlength="5" className="promo-code-field" />
                 <button className="promo-code-cta">Apply</button>
             </div>
-            <div className="cart-labels">
+            {/* <div className="cart-labels">
                 <ul>
                 <li className="item item-heading">Item</li>
                 <li className="price">Price</li>
@@ -23,6 +26,7 @@ const Cart = () => {
                 </ul>
             </div>
             <div >
+                {cartItems.length === 0 ? <p>No items in cart.</p> : null}
                 {cartItems && cartItems.map((product) => {
                 return (
                     <div className="cart-product">
@@ -49,14 +53,43 @@ const Cart = () => {
                     </div>
                 )
                 })}
-            </div>
+            </div> */}
+            <TableContainer>
+                <Table>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Item</TableCell>
+                            <TableCell align="center">Unit price</TableCell>
+                            <TableCell align="center">Quantity</TableCell>
+                            <TableCell align="center">Price</TableCell>
+                            <TableCell align="center"><IconButton><DeleteIcon /></IconButton></TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {cartItems.map((item) => {
+                            return (
+                                <TableRow>
+                                    <TableCell padding='checkbox' sx={{width:150}}>
+                                        <img src={item.product.img} alt={item.product.title}/>
+                                        <p>{item.product.title}</p>
+                                    </TableCell>
+                                    <TableCell align="center">${item.product.price}</TableCell>
+                                    <TableCell align="center">{item.quantity}</TableCell>
+                                    <TableCell align="center" style={{color:'red'}}>${item.product.price * item.quantity}</TableCell>
+                                    <TableCell align="center"><IconButton><DeleteIcon /></IconButton></TableCell>
+                                </TableRow>
+                            )
+                        })}
+                    </TableBody>
+                </Table>
+            </TableContainer>
             </div>
             <aside className="cart-aside">
             <div className="summary">
                 <div className="summary-total-items"><span className="total-items"></span> Items in your Bag</div>
                 <div className="summary-subtotal">
                 <div className="subtotal-title">Subtotal</div>
-                <div className="subtotal-value final-value" id="cart-subtotal">130.00</div>
+                <div className="subtotal-value final-value" id="cart-subtotal">{cart.price}</div>
                 <div className="summary-promo hide">
                     <div className="promo-title">Promotion</div>
                     <div className="promo-value final-value" id="cart-promo"></div>
@@ -66,10 +99,10 @@ const Cart = () => {
                 </div>
                 <div className="summary-total">
                 <div className="total-title">Total</div>
-                <div className="total-value final-value" id="cart-total">130.00</div>
+                <div className="total-value final-value" id="cart-total">{cart.price}</div>
                 </div>
                 <div className="summary-checkout">
-                <button className="btn" type='submit' style={{width:'100%', margin:'0 auto'}}>Submit</button>
+                <Button variant="contained" type='submit' style={{width:'100%', margin:'0 auto'}}>Submit</Button>
                 </div>
             </div>
             </aside>

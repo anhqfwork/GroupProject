@@ -9,13 +9,13 @@ import { imgSlide } from '../../../dummyData'
 const Home = () => {
     const Book = (book) => {
         return (
-            <li className='product_item'>
-                <a className='cover_container'>
+            <li className='book'>
+                <a>
                     <img src={book.img} alt="" width="180" height="260"/>
-                    <div className='cover'><IconButton className='icon'><SearchIcon /></IconButton></div>
+                    {/* <div className='cover'><IconButton className='icon'><SearchIcon /></IconButton></div> */}
                 </a>
-                <h3>{book.title}</h3>
-                <h4>{book.price}</h4>
+                {/* <h3>{book.title}</h3>
+                <h4>{book.price}</h4> */}
             </li>
         );
     };
@@ -52,7 +52,7 @@ const Home = () => {
                 <h4>this month's</h4>
                 <h2>new arrivals</h2>
             </div>
-            <ul className='product_center'>
+            <ul className='booklist'>
                 {newestProducts.map((book) => {
                     return (
                         <Book key={book._id} {...book}></Book>
@@ -61,9 +61,9 @@ const Home = () => {
             </ul>
             <div className='title_center'>
                 <h4>book shop publishers</h4>
-                <h2>all products</h2>
+                <h2>new arrivals</h2>
             </div>
-            <ul className='product_center'>
+            <ul className='booklist'>
                 {products.map((book) => {
                     return (
                         <Book key={book._id} {...book}></Book>

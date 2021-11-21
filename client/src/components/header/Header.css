@@ -25,6 +25,13 @@ Variables
   --radius: 0.3rem;
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+  --columns: 3;
+  --yellow: #fbf4a3;
+  --pink: #f8bed8;
+  --blue: #a2dcf8;
+  --green: #c0f8dc;
+  --p: #d4c0f8;
 }
 
 *,
@@ -43,6 +50,7 @@ ul {
   list-style-type: none;
 }
 a {
+  outline: none;
   text-decoration: none;
 }
 h1,
@@ -145,16 +153,21 @@ header {
 }
 .search-btn {
   height: 100%;
-  padding: 5px 10px;
+  padding: 0px 10px;
   font-size: 16px;
   border: none;
   cursor: pointer;
-  vertical-align: middle;
+  display: flex;
+  color: white;
+  align-items: center;
   border-top-right-radius: var(--radius);
   border-bottom-right-radius: var(--radius);
   background-color: var(--clr-primary);
+  transition: var(--transition);
 }
-
+.search-btn:hover {
+  background-color: rgb(66, 105, 189);
+}
 .dropdown {
   position: relative;
   display: inline-block;

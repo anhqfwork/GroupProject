@@ -3,11 +3,11 @@ import './Header.css'
 import MenuIcon from '@mui/icons-material/Menu'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import IconButton from '@mui/material/IconButton'
+import { Avatar } from '@mui/material'
 import { useGlobalContext } from '../../context'
 import { Link } from "react-router-dom"
-import { categories } from '../../dummyData'
+import { categories, currentUser } from '../../dummyData'
 import Sidebar from './Sidebar'
-import SearchIcon from '@mui/icons-material/Search'
 
 const Header = () => {
     const { openSidebar } = useGlobalContext();
@@ -20,10 +20,13 @@ const Header = () => {
                             <MenuIcon />
                         </IconButton>
                     </a>
-                    <h2>BookStore</h2>   
-                    <a className='nav-toggle' href="/cart">                 
-                        <IconButton>
-                            <ShoppingCartIcon />
+                    <h2>BookStore</h2> 
+                    <a className='nav-toggle'> 
+                        <IconButton href="/profile">
+                            <Avatar alt={currentUser.name} src={currentUser.avatar} sx={{ width: 30, height: 30 }} />
+                        </IconButton>
+                        <IconButton href="/cart">
+                            <ShoppingCartIcon color='primary' sx={{ width: 30, height: 30 }} />
                         </IconButton>
                     </a>
                     <Sidebar />
@@ -34,11 +37,16 @@ const Header = () => {
                         type='text'
                         placeholder='Find product, category or publisher you want...'
                     />
-                    <a className='search-btn'><SearchIcon />Search</a>
+                    <a className='search-btn'>Search</a>
                 </div>
+                <a className='cart-toggle' href="/profile">
+                    <IconButton>
+                        <Avatar alt={currentUser.name} src={currentUser.avatar} sx={{ width: 30, height: 30 }} />
+                    </IconButton>
+                </a>
                 <a className='cart-toggle' href="/cart">
                     <IconButton>
-                        <ShoppingCartIcon />
+                        <ShoppingCartIcon color='primary' sx={{ width: 30, height: 30 }} />
                     </IconButton>
                 </a>
             </div>
