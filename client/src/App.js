@@ -9,6 +9,7 @@ import Product from "./components/body/Product/Product"
 import Cart from "./components/body/Cart/Cart"
 import About from "./components/body/About/About"
 import Profile from "./components/profile/profile"
+import Contact from "./components/contact/contact"
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
                 <Route element={<About />} exact path="/about" />
                 <Route element={<Cart />} exact path="/cart" />
                 <Route element={<Profile />} path="/profile" />
+                <Route element={<Contact />} path="/contact"></Route>
             </Routes>
             <Footer />
         </Router>
