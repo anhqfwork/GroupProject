@@ -44,7 +44,7 @@ Variables
   box-sizing: border-box;
 }
 body {
-  /* font-family: Inria Serif; */
+  background-color: var(--clr-grey-bg);
   line-height: 1.5;
   font-size: 0.875rem;
 }
@@ -78,7 +78,6 @@ h4 {
 }
 p {
   margin-bottom: 1.25rem;
-  color: var(--clr-black);
 }
 @media screen and (min-width: 800px) {
   h1 {
@@ -114,10 +113,7 @@ header {
   padding: 1rem;
 }
 .nav-header h2 {
-  color: var(--clr-primary);
-}
-.nav-toggle {
-  color: var(--clr-black);
+  color: var(--clr-white);
 }
 .nav-bar {
   display: none;
@@ -131,8 +127,8 @@ header {
 .search-center {
   display: flex;
   justify-content: unset;
-  margin: 0px auto;
-  width: 92%;
+  margin: 0px 25px 5px;
+  width: 99%;
   height: 45px;
 }
 .search-bar {
@@ -155,14 +151,15 @@ header {
   height: 100%;
   padding: 0px 10px;
   font-size: 16px;
-  border: 1px solid var(--clr-primary);
+  border: 1px solid var(--clr-pri-dark);
   cursor: pointer;
   display: flex;
   color: var(--clr-white);
+  font-weight: bold;
   align-items: center;
   border-top-right-radius: var(--radius);
   border-bottom-right-radius: var(--radius);
-  background-color: var(--clr-primary);
+  background-color: var(--clr-pri-dark);
   transition: var(--transition);
 }
 .search-btn:hover {
@@ -207,18 +204,7 @@ Sidebar
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1.5rem 0rem;
-}
-.close-btn {
-  font-size: 1.75rem;
-  background: transparent;
-  border-color: transparent;
-  transition: all 0.3s linear;
-  cursor: pointer;
-  color: var(--clr-red-dark);
-  margin-top: 0.2rem;
-}
-.close-btn:hover {
-  color: var(--clr-red-light);
+  color: var(--clr-pri-darkest);
 }
 .links a {
   display: flex;
@@ -226,13 +212,13 @@ Sidebar
   font-size: 1rem;
   text-transform: capitalize;
   padding: 1rem 1.5rem;
-  color: hsl(209, 34%, 30%);
-  transition: all 0.3s linear;
-  letter-spacing: 0.1rem;
+  color: var(--clr-pri-dark);
+  transition: var(--transition);
+  letter-spacing: var(--spacing);
 }
 .links a:hover {
-  background: hsl(212, 33%, 89%);
-  color: hsl(211, 32%, 40%);
+  background: var(--clr-blue-bg);
+  color: var(--clr-pri-darkest);
 }
 .links span {
   margin: 0 2rem;
@@ -256,7 +242,7 @@ Sidebar
   position: fixed;
   top: 0;
   left: 0;
-  width: 400px;
+  width: 300px;
   height: 100%;
   z-index: 1;
   background: var(--clr-white);
@@ -310,6 +296,6 @@ Sidebar
     display: inline;
   }
   .search-center {
-    width: 450px;
+    width: 700px;
   }
 }

@@ -74,22 +74,38 @@
 SLider
 ==========
  */
+.slide-center {
+  width: 90vw;
+  max-width: 1170px;
+  margin: 20px auto;
+  padding-top: 20px;
+  background-color: var(--clr-white);
+}
 .slider-container {
   margin: 10px;
   padding: 30px;
-  background-color: rgb(248, 248, 248);
+  border-radius: var(--radius);
 }
+.publisher_slide .slick-prev:before,
+.publisher_slide .slick-next:before,
 .slider .slick-prev:before,
 .slider .slick-next:before {
-  color: rgb(64, 150, 231);
+  color: var(--clr-primary);
 }
+.publisher_slide .slick-slide,
 .slider .slick-slide {
   padding: 10px;
   transition: all ease-in-out 0.3s;
 }
+.publisher_slide .slick-slide:hover,
 .slider .slick-slide:hover {
   opacity: 0.9;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+.publisher_slide img {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto;
 }
 .slide img {
   width: 180px;
@@ -112,6 +128,7 @@ SLider
 description
 ============ 
 */
+
 .description,
 .rating {
   width: 90vw;

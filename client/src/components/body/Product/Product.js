@@ -89,21 +89,23 @@ const Product = () => {
                     <Button variant="contained" color="error" className="add-btn" sx={{width:300, height:50}}>Add To Cart</Button>
                 </div>
             </div>
-            <div className="slider-container">
-                <h3>Related products</h3>
-                <Slider {...settings} responsive={responsive} className="slider">
-                    {relatedProducts.map((book) => {
-                    return (
-                    <div className="slide">
-                        <a href="/product">
-                        <img src={book.img} alt={book.title}/>
-                        <h4>{book.title}</h4>
-                        <p>${book.price}</p>
-                        </a>
-                    </div>
-                    )
-                    })}
-                </Slider>
+            <div className="slide-center">
+                <div className="slider-container">
+                    <h3>Related products</h3>
+                    <Slider {...settings} responsive={responsive} className="slider">
+                        {relatedProducts.map((book) => {
+                        return (
+                        <div className="slide">
+                            <a href="/product">
+                                <img src={book.img} alt={book.title}/>
+                                <h4>{book.title}</h4>
+                                <p>${book.price}</p>
+                            </a>
+                        </div>
+                        )
+                        })}
+                    </Slider>
+                </div>
             </div>
             <div className='description'>
                 <h3>description</h3>

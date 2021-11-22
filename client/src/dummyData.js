@@ -91,6 +91,39 @@ const newestProducts = [
         price: 50,
     },
 ]
+// New Arrivals
+const bestSellers = [
+    {
+        title: 'Book one',
+        img: 'https://pub-static.fotor.com/assets/projects/pages/60d3cc50363a48d2a1825b7e90d49963_thumb.jpg',
+        price: 20,
+    },
+    {
+        title: 'Book two',
+        img: 'https://d1wnwqwep8qkqc.cloudfront.net/uploads/stage/stage_image/37836/optimized_large_thumb_stage.jpg',
+        price: 10,
+    },
+    {
+        title: 'Book three',
+        img: 'https://assets-3.placeit.net/smart_templates/e639b9513adc63d37ee4f577433b787b/assets/wn5u193mcjesm2ycxacaltq8jdu68kmu.jpg',
+        price: 40,
+    },
+    {
+        title: 'Book four',
+        img: 'https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781684123247/once-upon-a-story-the-jungle-book-9781684123247_hr.jpg',
+        price: 50,
+    },
+    {
+        title: 'Book five',
+        img: 'https://www.designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-tf-2-a-million-to-one.jpg',
+        price: 20,
+    },
+    {
+        title: 'Book six',
+        img: 'https://images2.penguinrandomhouse.com/cover/9780525541622',
+        price: 20,
+    },
+]
 
 // A Specific Product
 const product = {
@@ -176,6 +209,26 @@ const imgSlide = [
 ]
 
 const categories = ['Manga', 'Light Novel', 'Novel', 'Detective']
-const publishers = ['KimDong', 'IPM', 'Tre', 'Amak', 'NhaNam']
-
-export { currentUser, cart, products, product, newestProducts, reviews, categories, publishers, relatedProducts, imgSlide }
+const publishers = [
+    {
+        name:'KimDong',
+        img:"https://upload.wikimedia.org/wikipedia/vi/3/3b/Logo_nxb_Kim_%C4%90%E1%BB%93ng.png"
+    },
+    {
+        name:'IPM',
+        img: "https://cdn0.fahasa.com/media/wysiwyg/NXB/Logo-IPM.jpg"
+    },
+    {
+        name:'Tre',
+        img:"https://locrpctricks.files.wordpress.com/2018/04/tumblr_static_f25n7rsd1jscgw4koogg04woc.png"
+    },
+    {
+        name:'Amak',
+        img:"https://amak.vn/wp-content/uploads/2020/04/Logo-AMAK.png"
+    },
+    {
+        name:'NhaNam',
+        img: "https://static.ybox.vn/2020/2/5/1582276635522-1561977250696-Nh%C3%A3%20Nam.jpg"
+    }
+]
+export { currentUser, cart, products, product, newestProducts, bestSellers, reviews, categories, publishers, relatedProducts, imgSlide }

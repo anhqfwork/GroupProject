@@ -13,42 +13,46 @@ const Header = () => {
     const { openSidebar } = useGlobalContext();
     return (
         <header>
-            <div className='nav-center'>
-                <div className='nav-header'>
-                    <a className='nav-toggle'>
-                        <IconButton onClick={openSidebar}>
-                            <MenuIcon />
-                        </IconButton>
-                    </a>
-                    <h2>BookStore</h2> 
-                    <a className='nav-toggle'> 
-                        <IconButton href="/profile">
+            <div style={{color:"white", background:"var(--clr-primary)", padding:5}}>
+                <div className='nav-center'>
+                    <div className='nav-header'>
+                        <a className='nav-toggle'>
+                            <IconButton onClick={openSidebar}>
+                                <MenuIcon style={{color: "white"}}/>
+                            </IconButton>
+                        </a>
+                        <a href="/">
+                            <h2>BookStore</h2>
+                        </a>
+                        <a className='nav-toggle'> 
+                            <IconButton href="/profile">
+                                <Avatar alt={currentUser.name} src={currentUser.avatar} sx={{ width: 30, height: 30 }} />
+                            </IconButton>
+                            <IconButton href="/cart">
+                                <ShoppingCartIcon sx={{ width: 30, height: 30 }} style={{color: "white"}} />
+                            </IconButton>
+                        </a>
+                        <Sidebar />
+                    </div>
+                    <div className='search-center'>
+                        <input 
+                            className='search-bar'
+                            type='text'
+                            placeholder='Find product, category or publisher you want...'
+                        />
+                        <a className='search-btn'>Search</a>
+                    </div>
+                    <a className='cart-toggle' href="/profile">
+                        <IconButton>
                             <Avatar alt={currentUser.name} src={currentUser.avatar} sx={{ width: 30, height: 30 }} />
                         </IconButton>
-                        <IconButton href="/cart">
-                            <ShoppingCartIcon color='primary' sx={{ width: 30, height: 30 }} />
+                    </a>
+                    <a className='cart-toggle' href="/cart">
+                        <IconButton>
+                            <ShoppingCartIcon sx={{ width: 30, height: 30 }} style={{color: "white"}} />
                         </IconButton>
                     </a>
-                    <Sidebar />
                 </div>
-                <div className='search-center'>
-                    <input 
-                        className='search-bar'
-                        type='text'
-                        placeholder='Find product, category or publisher you want...'
-                    />
-                    <a className='search-btn'>Search</a>
-                </div>
-                <a className='cart-toggle' href="/profile">
-                    <IconButton>
-                        <Avatar alt={currentUser.name} src={currentUser.avatar} sx={{ width: 30, height: 30 }} />
-                    </IconButton>
-                </a>
-                <a className='cart-toggle' href="/cart">
-                    <IconButton>
-                        <ShoppingCartIcon color='primary' sx={{ width: 30, height: 30 }} />
-                    </IconButton>
-                </a>
             </div>
             <div className='nav-container'>
                 <div className='nav-bar'>
