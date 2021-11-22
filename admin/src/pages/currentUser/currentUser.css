@@ -1,112 +1,112 @@
-.user {
+.currentUser {
   flex: 4;
   padding: 20px;
 }
-.userTitleContainer {
+.currentUserTitleContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.userContainer {
+.currentUserContainer {
   display: flex;
   margin-top: 20px;
 }
-.userShow {
+.currentUserShow {
   flex: 1;
   padding: 20px;
   -webkit-box-shadow: 0px 0px 11px -1px rgba(0, 0, 0, 0.35);
   box-shadow: 0px 0px 11px -1px rgba(0, 0, 0, 0.35);
 }
-.userUpdate {
+.currentUserUpdate {
   flex: 2;
   padding: 20px;
   -webkit-box-shadow: 0px 0px 11px -1px rgba(0, 0, 0, 0.35);
   box-shadow: 0px 0px 11px -1px rgba(0, 0, 0, 0.35);
   margin-left: 20px;
 }
-.userShowTop {
+.currentUserShowTop {
   display: flex;
   align-items: center;
 }
-.userShowImg {
+.currentUserShowImg {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
 }
-.userShowTopTitle {
+.currentUserShowTopTitle {
   display: flex;
   flex-direction: column;
   margin-left: 20px;
 }
-.userShowUsername {
+.currentUserShowUsername {
   font-weight: 600;
 }
-.userShowBottom {
+.currentUserShowBottom {
   margin-top: 20px;
 }
-.userShowTitle {
+.currentUserShowTitle {
   font-size: 14px;
   font-weight: 600;
   color: rgb(175, 170, 170);
 }
-.userShowInfo {
+.currentUserShowInfo {
   display: flex;
   align-items: center;
   margin: 20px 0px;
   color: #444;
 }
-.userShowIcon {
+.currentUserShowIcon {
   font-size: 16px !important;
 }
-.userShowInfoTitle{
+.currentUserShowInfoTitle{
     margin-left: 10px;
 }
-.userUpdateImg{
+.currentUserUpdateImg{
     width: 100px;
     height: 100px;
     border-radius: 10px;
     object-fit: cover;
     margin-right: 20px;
 }
-.userUpdateForm{
+.currentUserUpdateForm{
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
 }
-.userTitle{
+.currentUserTitle{
     font-size: 24px;
     font-weight: 600;
 }
-.userUpdateItem{
+.currentUserUpdateItem{
     display: flex;
     flex-direction: column;
     margin: 10px;
 }
-.userUpdateItem>label{
+.currentUserUpdateItem>label{
     margin-bottom: 5px;
     font-size: 14px;
 }
-.userUpdateInput{
+.currentUserUpdateInput{
     border: none;
     width: 250px;
     border-bottom: 1px solid gray;
     height: 30px;
 }
-.userUpdateRight{
+.currentUserUpdateRight{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-.userUpdateUpload{
+.currentUserUpdateUpload{
     display: flex;
     align-items: center;
 }
-.userUpdateIcon{
+.currentUserUpdateIcon{
     cursor: pointer;
 }
-.userUpdateButton{
+.currentUserUpdateButton{
     border: none;
     border-radius: 5px;
     cursor: pointer;
