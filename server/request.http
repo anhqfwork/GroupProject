@@ -1,0 +1,372 @@
+POST http://localhost:5000/api/auth/user/signup
+Content-Type: application/json
+
+{
+  "email":"tungxuannguyen17@gmail.com",
+  "password":"Gahoideptrai1970@",
+  "confirmedPassword":"Gahoideptrai1970@",
+  "username":"jinkaido",
+  "name":"Nguyen Xuan Tung"
+}
+
+###
+
+POST http://localhost:5000/api/auth/user/login
+Content-Type: application/json
+
+{
+  "email":"tungxuannguyen18@gmail.com",
+  "password":"Gahoideptrai1970@"
+}
+###
+
+POST http://localhost:5000/api/auth/employee/signup
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmdueC5iaTEwLTE4OEBzdC51c3RoLmVkdS52biIsImVtcGxveWVlSWQiOiI2MTg5ZjI0YjNiNWQ0OGI1MGFjNWI3ZjMiLCJpYXQiOjE2MzY4MTIzMzgsImV4cCI6MTYzNjg5ODczOH0.m3Zql7kPIaYQh1Jm7OX1imBXKqXSZ7K55EHYgnTwQ_Y
+Content-Type: application/json
+
+{
+  "email":"tungnx.bi10-183@st.usth.edu.vn",
+  "password":"Gahoideptrai1970@",
+  "confirmedPassword":"Gahoideptrai1970@",
+  "username":"Jinkaido",
+  "name":"Nguyen Xuan Tung"
+}
+###
+
+POST http://localhost:5000/api/auth/employee/login
+Content-Type: application/json
+
+{
+  "email":"tungnx.bi10-188@st.usth.edu.vn",
+  "password":"Gahoideptrai1970@"
+}
+
+###
+
+GET http://localhost:5000/api/user/6189de75d067d4ff176ee294
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmdueC5iaTEwLTE4OEBzdC51c3RoLmVkdS52biIsImVtcGxveWVlSWQiOiI2MTg5ZjI0YjNiNWQ0OGI1MGFjNWI3ZjMiLCJpYXQiOjE2MzY1Mzc2NzMsImV4cCI6MTYzNjYyNDA3M30.AM1E18IHHiC0NMrcIl-QaDUwo-Wm8g3nG9B_fR1vQZA
+
+###
+
+PATCH http://localhost:5000/api/user/6189de75d067d4ff176ee294/changePassword
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmdueC5iaTEwLTE4OEBzdC51c3RoLmVkdS52biIsImVtcGxveWVlSWQiOiI2MTg5ZjI0YjNiNWQ0OGI1MGFjNWI3ZjMiLCJpYXQiOjE2MzY1Mzc2NzMsImV4cCI6MTYzNjYyNDA3M30.AM1E18IHHiC0NMrcIl-QaDUwo-Wm8g3nG9B_fR1vQZA
+Content-Type: application/json
+
+{
+  "password":"Test2001@",
+  "confirmedPassword":"Test2001@"
+}
+
+###
+
+PATCH http://localhost:5000/api/employee/6189f24b3b5d48b50ac5b7f3/changePassword
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmdueC5iaTEwLTE4OEBzdC51c3RoLmVkdS52biIsImVtcGxveWVlSWQiOiI2MTg5ZjI0YjNiNWQ0OGI1MGFjNWI3ZjMiLCJpYXQiOjE2MzY1MzgwMDksImV4cCI6MTYzNjYyNDQwOX0.yTUfi3w4L-YFXxW2PRZWpZGSOOtyjAUB1fs0xXsFx_c
+Content-Type: application/json
+
+{
+  "password":"Gahoideptrai1970@",
+  "confirmedPassword":"Gahoideptrai1970@"
+}
+
+###
+
+GET http://localhost:5000/api/employee/6189f24b3b5d48b50ac5b7f3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmdueC5iaTEwLTE4OEBzdC51c3RoLmVkdS52biIsImVtcGxveWVlSWQiOiI2MTg5ZjI0YjNiNWQ0OGI1MGFjNWI3ZjMiLCJpYXQiOjE2MzY1MzI1OTgsImV4cCI6MTYzNjYxODk5OH0.h20ZGioe1Pggc6dWue5go7Q3OBo2Y1skFZi5QJ2UcJw
+
+###
+GET http://localhost:5000/api/user/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmdueC5iaTEwLTE4OEBzdC51c3RoLmVkdS52biIsImVtcGxveWVlSWQiOiI2MTg5ZjI0YjNiNWQ0OGI1MGFjNWI3ZjMiLCJpYXQiOjE2MzY1MzgwMDksImV4cCI6MTYzNjYyNDQwOX0.yTUfi3w4L-YFXxW2PRZWpZGSOOtyjAUB1fs0xXsFx_c
+
+###
+
+POST http://localhost:5000/api/user/searchSpecificUser
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmdueC5iaTEwLTE4OEBzdC51c3RoLmVkdS52biIsImVtcGxveWVlSWQiOiI2MTg5ZjI0YjNiNWQ0OGI1MGFjNWI3ZjMiLCJpYXQiOjE2MzY1MzgwMDksImV4cCI6MTYzNjYyNDQwOX0.yTUfi3w4L-YFXxW2PRZWpZGSOOtyjAUB1fs0xXsFx_c
+Content-Type: application/json
+
+{
+  "name":"Nguyen"
+}
+###
+
+
+POST http://localhost:5000/api/category
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmdueC5iaTEwLTE4OEBzdC51c3RoLmVkdS52biIsImVtcGxveWVlSWQiOiI2MTg5ZjI0YjNiNWQ0OGI1MGFjNWI3ZjMiLCJpYXQiOjE2MzY1NTQ2NDgsImV4cCI6MTYzNjY0MTA0OH0.3LrPGRTQ3ugv30Z7tk9dQqKSFKKDTDDsKCCIOOKHaJY
+Content-Type: application/json
+
+{
+  "name":"Historic",
+  "description":""
+}
+
+###
+
+GET http://localhost:5000/api/category
+
+###
+
+DELETE http://localhost:5000/api/category/618bd9cc58bba4190310b91c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmdueC5iaTEwLTE4OEBzdC51c3RoLmVkdS52biIsImVtcGxveWVlSWQiOiI2MTg5ZjI0YjNiNWQ0OGI1MGFjNWI3ZjMiLCJpYXQiOjE2MzY1NTQ2NDgsImV4cCI6MTYzNjY0MTA0OH0.3LrPGRTQ3ugv30Z7tk9dQqKSFKKDTDDsKCCIOOKHaJY
+
+###
+PUT http://localhost:5000/api/category/618bd9cc58bba4190310b91c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmdueC5iaTEwLTE4OEBzdC51c3RoLmVkdS52biIsImVtcGxveWVlSWQiOiI2MTg5ZjI0YjNiNWQ0OGI1MGFjNWI3ZjMiLCJpYXQiOjE2MzY1NTQ2NDgsImV4cCI6MTYzNjY0MTA0OH0.3LrPGRTQ3ugv30Z7tk9dQqKSFKKDTDDsKCCIOOKHaJY
+Content-Type: application/json
+
+{
+  "name":"History",
+  "description":""
+}
+
+###
+POST http://localhost:5000/api/product
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmdueC5iaTEwLTE4OEBzdC51c3RoLmVkdS52biIsImVtcGxveWVlSWQiOiI2MTg5ZjI0YjNiNWQ0OGI1MGFjNWI3ZjMiLCJpYXQiOjE2MzY1OTY4NTEsImV4cCI6MTYzNjY4MzI1MX0.oFmyB7qPlYOsII_ujZbMUKxlwK10elmzFwVqGaqZZqs
+Content-Type: application/json
+
+{
+  "title":"Live a long life",
+  "price":8.5,
+  "authorName":"Xuan Tung",
+  "image":"https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png",
+  "inStock":40,
+  "isbn":"111111111111",
+  "publisher":"USTH",
+  "category":[
+    "Health"
+  ]
+}
+
+###
+GET http://localhost:5000/api/product
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmdueC5iaTEwLTE4OEBzdC51c3RoLmVkdS52biIsImVtcGxveWVlSWQiOiI2MTg5ZjI0YjNiNWQ0OGI1MGFjNWI3ZjMiLCJpYXQiOjE2MzY1NTQ2NDgsImV4cCI6MTYzNjY0MTA0OH0.3LrPGRTQ3ugv30Z7tk9dQqKSFKKDTDDsKCCIOOKHaJY
+
+###
+
+GET http://localhost:5000/api/product/618bd7a85b4bd11ed66cfb1e
+###
+
+POST http://localhost:5000/api/product/searchSpecificProduct
+Content-Type: application/json
+
+{
+  "title":"h"
+}
+###
+
+POST http://localhost:5000/api/product/productByCategory
+Content-Type: application/json
+
+{
+  "category":"Mystery"
+}
+
+###
+POST http://localhost:5000/api/product/filterProduct
+Content-Type: application/json
+
+{
+  "publisher":"USTH",
+  "priceSmaller":12,
+  "priceLarger":9
+}
+
+###
+
+POST http://localhost:5000/api/product/618bd7a85b4bd11ed66cfb1e/review
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmd4dWFubmd1eWVuMTdAZ21haWwuY29tIiwidXNlcklkIjoiNjE4YjdmYWJkZmEwOWFiMDRmN2YxM2ExIiwiaWF0IjoxNjM2NzA0MDAwLCJleHAiOjE2MzY3OTA0MDB9.vFNbLXRi9XDrlmkpoZWZ9sXF4wW-qWlFGnY12RrhjeI
+Content-Type: application/json
+
+{
+  "rating":4.5,
+  "comment":"This books does not have good plot"
+}
+
+###
+
+PATCH http://localhost:5000/api/product/618bd7a85b4bd11ed66cfb1e/review
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmd4dWFubmd1eWVuMTdAZ21haWwuY29tIiwidXNlcklkIjoiNjE4YjdmYWJkZmEwOWFiMDRmN2YxM2ExIiwiaWF0IjoxNjM2NzA0MDAwLCJleHAiOjE2MzY3OTA0MDB9.vFNbLXRi9XDrlmkpoZWZ9sXF4wW-qWlFGnY12RrhjeI
+Content-Type: application/json
+
+{
+  "rating":3,
+  "comment":"Not a fun book"
+}
+
+###
+
+DELETE http://localhost:5000/api/product/618bd7a85b4bd11ed66cfb1e/review
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmd4dWFubmd1eWVuMTdAZ21haWwuY29tIiwidXNlcklkIjoiNjE4YjdmYWJkZmEwOWFiMDRmN2YxM2ExIiwiaWF0IjoxNjM2NzA0MDAwLCJleHAiOjE2MzY3OTA0MDB9.vFNbLXRi9XDrlmkpoZWZ9sXF4wW-qWlFGnY12RrhjeI
+
+###
+
+GET http://localhost:5000/api/book/top
+
+###
+
+GET http://localhost:5000/api/book/617a06a1f200f974e76cff8c/review
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Inh1YW50dW5nNjk2OUBnbWFpbC5jb20iLCJ1c2VySWQiOiI2MTdhMDRkMzU1OTgxYTVmZjg1MGIwNTciLCJpYXQiOjE2MzUzODc2MTUsImV4cCI6MTYzNTQ3NDAxNX0.CwwbwHkpXROOSU2uhfX-bRuAztONAW_IR06eJ5xid4w
+
+###
+
+POST http://localhost:5000/api/cart/addToCart?productId=618bedc22bf3e6679f34248d
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmd4dWFubmd1eWVuMThAZ21haWwuY29tIiwidXNlcklkIjoiNjE4OWI2M2FhODA5NDRhYjBmMGNiMjcwIiwiaWF0IjoxNjM2ODEzNDkwLCJleHAiOjE2MzY4OTk4OTB9.RzYKKPg0lTDO3QZmu1klEzfdCW7u1Sw7Ph2mTz3fvkM
+Content-Type: application/json
+
+{
+  "quantity":3
+}
+
+###
+
+GET http://localhost:5000/api/cart/userCartInfo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmd4dWFubmd1eWVuMTdAZ21haWwuY29tIiwidXNlcklkIjoiNjE4YjdmYWJkZmEwOWFiMDRmN2YxM2ExIiwiaWF0IjoxNjM2NjgwMjI0LCJleHAiOjE2MzY3NjY2MjR9.NJZhj3zjC70oKzPQXRf9nPRhMvauSs9TCALEdXoaCns
+###
+
+PUT http://localhost:5000/api/cart/removeFromCart?productId=618bedb42bf3e6679f34248a
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmd4dWFubmd1eWVuMTdAZ21haWwuY29tIiwidXNlcklkIjoiNjE4YjdmYWJkZmEwOWFiMDRmN2YxM2ExIiwiaWF0IjoxNjM2NjAwMjUxLCJleHAiOjE2MzY2ODY2NTF9.kwJoExv8NUE7RwxL5ExVihvxv32jLT2LJWtaUfjVELk
+
+###
+
+POST http://localhost:5000/api/order/addToOrder
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmd4dWFubmd1eWVuMThAZ21haWwuY29tIiwidXNlcklkIjoiNjE4OWI2M2FhODA5NDRhYjBmMGNiMjcwIiwiaWF0IjoxNjM2ODEzNDkwLCJleHAiOjE2MzY4OTk4OTB9.RzYKKPg0lTDO3QZmu1klEzfdCW7u1Sw7Ph2mTz3fvkM
+Content-Type: application/json
+
+{
+  "orderItems":[
+    {
+      "product": "618bedc22bf3e6679f34248d",
+      "quantity": 3,
+      "_id": "618fcacb69704dfa3206b370"
+    }
+
+  ],
+  "paymentMethod":"Card",
+  "totalPrice":30
+}
+
+###
+GET http://localhost:5000/api/order/orderInfo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmd4dWFubmd1eWVuMTdAZ21haWwuY29tIiwidXNlcklkIjoiNjE4YjdmYWJkZmEwOWFiMDRmN2YxM2ExIiwiaWF0IjoxNjM2NzMwNDg5LCJleHAiOjE2MzY4MTY4ODl9.ka3ozoWjnR-JX9MKy-ASei_AMU3UxU4UHV3YDqU-GkM
+
+###
+DELETE http://localhost:5000/api/order/618d3dc3d97b800bcf63ea8e
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmd4dWFubmd1eWVuMTdAZ21haWwuY29tIiwidXNlcklkIjoiNjE4YjdmYWJkZmEwOWFiMDRmN2YxM2ExIiwiaWF0IjoxNjM2NjAwMjUxLCJleHAiOjE2MzY2ODY2NTF9.kwJoExv8NUE7RwxL5ExVihvxv32jLT2LJWtaUfjVELk
+
+###
+PUT http://localhost:5000/api/order/618dc103e37f696ca9c2c5b3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmdueC5iaTEwLTE4OEBzdC51c3RoLmVkdS52biIsImVtcGxveWVlSWQiOiI2MTg5ZjI0YjNiNWQ0OGI1MGFjNWI3ZjMiLCJpYXQiOjE2MzY2ODA1NjIsImV4cCI6MTYzNjc2Njk2Mn0.XImT5BSmgA8EZPxxSgSYk2WQYMEUzt6ZQulF7ymdqXQ
+Content-Type: application/json
+
+{
+  "status":"complete"
+}
+
+###
+GET http://localhost:5000/api/order/sortOrderByCreatedDate
+
+###
+
+GET http://localhost:5000/api/order/sortOrderByStatusDate
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmdueC5iaTEwLTE4OEBzdC51c3RoLmVkdS52biIsImVtcGxveWVlSWQiOiI2MTg5ZjI0YjNiNWQ0OGI1MGFjNWI3ZjMiLCJpYXQiOjE2MzY4NTM4NDUsImV4cCI6MTYzNjk0MDI0NX0.nsKxIFJiLYKB01Hc9KKDTOjblky6VJ_RbDh54BHb4VI
+Content-Type: application/json
+
+{
+  "status":"pending"
+}
+
+###
+GET http://localhost:5000/api/order/groupOrder
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmdueC5iaTEwLTE4OEBzdC51c3RoLmVkdS52biIsImVtcGxveWVlSWQiOiI2MTg5ZjI0YjNiNWQ0OGI1MGFjNWI3ZjMiLCJpYXQiOjE2MzY4MTQxNjksImV4cCI6MTYzNjkwMDU2OX0.lzL9r1CsGekHE3vcZEplSeWBtvizcLi5_03mHMj5CZA
+
+###
+GET http://localhost:5000/api/order/618bd7a85b4bd11ed66cfb1e/checkOrderStatusComplete
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmd4dWFubmd1eWVuMTdAZ21haWwuY29tIiwidXNlcklkIjoiNjE4YjdmYWJkZmEwOWFiMDRmN2YxM2ExIiwiaWF0IjoxNjM2NzA0MDAwLCJleHAiOjE2MzY3OTA0MDB9.vFNbLXRi9XDrlmkpoZWZ9sXF4wW-qWlFGnY12RrhjeI
+
+###
+GET http://localhost:5000/api/order/car
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmdueC5iaTEwLTE4OEBzdC51c3RoLmVkdS52biIsImVtcGxveWVlSWQiOiI2MTg5ZjI0YjNiNWQ0OGI1MGFjNWI3ZjMiLCJpYXQiOjE2MzY4MTQxNjksImV4cCI6MTYzNjkwMDU2OX0.lzL9r1CsGekHE3vcZEplSeWBtvizcLi5_03mHMj5CZA
+
+###
+GET http://localhost:5000/api/order/getAddressPNUser
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmd4dWFubmd1eWVuMThAZ21haWwuY29tIiwidXNlcklkIjoiNjE4OWI2M2FhODA5NDRhYjBmMGNiMjcwIiwiaWF0IjoxNjM2ODUzMjc2LCJleHAiOjE2MzY5Mzk2NzZ9.bAB-_1R-mSvnKYNJi4HuXEkkqAVDxMkqGRewcN10ISc
+
+###
+GET http://localhost:5000/api/user/func/getUsersPlusMonth
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmdueC5iaTEwLTE4OEBzdC51c3RoLmVkdS52biIsImVtcGxveWVlSWQiOiI2MTg5ZjI0YjNiNWQ0OGI1MGFjNWI3ZjMiLCJpYXQiOjE2MzY4NTM4NDUsImV4cCI6MTYzNjk0MDI0NX0.nsKxIFJiLYKB01Hc9KKDTOjblky6VJ_RbDh54BHb4VI
+
+###
+GET http://localhost:5000/api/user/func/getFiveNewestUsers
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmdueC5iaTEwLTE4OEBzdC51c3RoLmVkdS52biIsImVtcGxveWVlSWQiOiI2MTg5ZjI0YjNiNWQ0OGI1MGFjNWI3ZjMiLCJpYXQiOjE2MzY4NTM4NDUsImV4cCI6MTYzNjk0MDI0NX0.nsKxIFJiLYKB01Hc9KKDTOjblky6VJ_RbDh54BHb4VI
+
+###
+GET http://localhost:5000/api/product/func/getFiveNewestProducts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmdueC5iaTEwLTE4OEBzdC51c3RoLmVkdS52biIsImVtcGxveWVlSWQiOiI2MTg5ZjI0YjNiNWQ0OGI1MGFjNWI3ZjMiLCJpYXQiOjE2MzY4NTM4NDUsImV4cCI6MTYzNjk0MDI0NX0.nsKxIFJiLYKB01Hc9KKDTOjblky6VJ_RbDh54BHb4VI
+
+
+###
+GET http://localhost:5000/api/product/func/getMostSoldProducts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmdueC5iaTEwLTE4OEBzdC51c3RoLmVkdS52biIsImVtcGxveWVlSWQiOiI2MTg5ZjI0YjNiNWQ0OGI1MGFjNWI3ZjMiLCJpYXQiOjE2MzY4NTM4NDUsImV4cCI6MTYzNjk0MDI0NX0.nsKxIFJiLYKB01Hc9KKDTOjblky6VJ_RbDh54BHb4VI
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
