@@ -41,6 +41,35 @@ export const allEmployees = [
       "https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png",
   },
 ];
+export const allUsers = [
+  {
+    id: 1,
+    username: "anhnguyen",
+    name: "Anh",
+    email: "anh@gmail.com",
+    phoneNumber: "01284372937",
+    avatar:
+      "https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png",
+  },
+  {
+    id: 2,
+    username: "baotran",
+    name: "Bao",
+    email: "bao@gmail.com",
+    phoneNumber: "09832745834",
+    avatar:
+      "https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png",
+  },
+  {
+    id: 3,
+    username: "chinhvu",
+    name: "Chinh",
+    email: "chinh@gmail.com",
+    phoneNumber: "09236842836",
+    avatar:
+      "https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png",
+  },
+];
 export const userData = [
   {
     name: "Jan",
@@ -170,13 +199,13 @@ export const product = {
 
 export const orders = [
   {
-    _id: "1",
+    id: "1",
     userId: "1",
     status: "Pending",
     price: 25,
   },
   {
-    _id: "1",
+    id: "2",
     userId: "1",
     status: "Complete",
     price: 20,
@@ -184,7 +213,7 @@ export const orders = [
 ];
 
 export const order = {
-  _id: "1",
+  id: "1",
   userId: "1",
   status: "Pending",
   price: 25,

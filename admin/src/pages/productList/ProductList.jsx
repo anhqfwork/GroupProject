@@ -5,11 +5,10 @@ import {
   GridToolbarDensitySelector,
   GridToolbarFilterButton,
 } from "@material-ui/data-grid";
-import { DeleteOutline } from "@material-ui/icons";
 import { products } from "../../dummyData";
 import { Link } from "react-router-dom";
 import { IconButton } from "@material-ui/core";
-import { Delete, Clear, Search } from "@material-ui/icons";
+import { DeleteOutline, Delete, Clear, Search } from "@material-ui/icons";
 import { createStyles, makeStyles } from "@material-ui/styles";
 import { createTheme, TextField } from "@material-ui/core";
 function escapeRegExp(value) {
@@ -90,14 +89,14 @@ function ProductList() {
     setData(filteredRows);
   };
   const handleDelete = (id) => {
-    setData(data.filter((item) => item._id !== id));
+    setData(data.filter((item) => item.id !== id));
   };
   const columns = [
     {
       field: "delete",
-      width: 75,
-      sortable: false,
+      flex: 0.7,
       disableColumnMenu: true,
+      sortable: false,
       filterable: false,
       renderHeader: () => {
         return (
@@ -115,33 +114,43 @@ function ProductList() {
         );
       },
     },
-    { field: "id", headerName: "ID", width: 150, disableColumnMenu: true },
+    { field: "id", headerName: "ID", flex: 0.7, disableColumnMenu: true },
     {
       field: "product",
       headerName: "Product",
-      width: 230,
+      flex: 1,
+      align: "center",
+      headerAlign: "center",
       disableColumnMenu: true,
+      sortable: false,
+      filterable: false,
       renderCell: (params) => {
         return (
           <div className="productListItem">
             <img src={params.row.img} alt="" className="productListImg" />
-            {params.row.title}
           </div>
         );
       },
     },
     {
+      field: "title",
+      headerName: "Product Name",
+      flex: 2,
+      disableColumnMenu: true,
+    },
+    {
       field: "price",
       headerName: "Price",
-      width: 200,
+      flex: 1.5,
       disableColumnMenu: true,
     },
     {
       field: "action",
       headerName: "Action",
-      width: 150,
-      filterable: false,
+      flex: 2,
       disableColumnMenu: true,
+      sortable: false,
+      filterable: false,
       renderCell: (params) => {
         return (
           <>
@@ -168,7 +177,7 @@ function ProductList() {
       <DataGrid
         rows={data}
         columns={columns}
-        pageSize={8}
+        pageSize={5}
         disableSelectionOnClick
         rowsPerPageOptions={[5]}
         checkboxSelection

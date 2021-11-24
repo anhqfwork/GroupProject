@@ -1,37 +1,85 @@
 import React, {useState, useEffect} from 'react'
 import './Home.css'
+import Slider from "react-slick"
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { Carousel } from 'react-carousel-minimal';
 import IconButton from '@mui/material/IconButton'
 import SearchIcon from '@mui/icons-material/Search';
-import {newestProducts, products} from '../../../dummyData'
+import {bestSellers, newestProducts, products, publishers} from '../../../dummyData'
 import { imgSlide } from '../../../dummyData'
 
 const Home = () => {
+    const settings = {
+        dots: true,
+        infinite: false,
+        speed: 300,
+        slidesToShow: 5,
+        slidesToScroll: 5,
+    };
+    const responsive = [
+        {
+        breakpoint: 1024,
+        settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+        }
+        },
+        {
+        breakpoint: 600,
+        settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+        }
+        },
+        {
+        breakpoint: 480,
+        settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+        }
+        }
+    ]
+    const autoSetting = {
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+    }
     const Book = (book) => {
         return (
-            <li className='product_item'>
-                <a className='cover_container'>
-                    <img src={book.img} alt="" width="180" height="260"/>
-                    <div className='cover'><IconButton className='icon'><SearchIcon /></IconButton></div>
+            <div className="slide">
+                <a href="/product">
+                    <img src={book.img} alt=""/>
+                    <h4>{book.title}</h4>
+                    <p>{book.price}</p>
                 </a>
-                <h3>{book.title}</h3>
-                <h4>{book.price}</h4>
-            </li>
+            </div>
         );
     };
+    const Publisher = (publisher) => {
+        return (
+            <div className="publisher_slide">
+                <a href="/products">
+                    <img src={publisher.img} alt={publisher.name} />
+                </a>
+            </div>
+        )
+    }
     return (
         <div>
-            <div style={{ textAlign: "center", padding: "0 20px" }}>
+            <div style={{ padding: "0 20px" }}>
                 <Carousel
                     data={imgSlide}
                     time={5000}
-                    width="850px"
-                    height="500px"
+                    width="90vw"
+                    height="600px"
                     caption={false}
                     captionStyle={{display:'none'}}
                     radius="10px"
                     slideNumber={false}
-                    captionPosition="bottom"
                     automatic={true}
                     dots={true}
                     pauseIconColor="white"
@@ -42,34 +90,63 @@ const Home = () => {
                     ic
                     style={{
                     textAlign: "center",
-                    maxWidth: "850px",
-                    maxHeight: "500px",
+                    maxWidth: "1170px",
+                    maxHeight: "600px",
                     margin: "30px auto",
                     }}
                 />
             </div>
-            <div className='title_center'>
-                <h4>this month's</h4>
-                <h2>new arrivals</h2>
+            <div className="slide-center">
+                <div className='title_center'>
+                    <h4>this month's</h4>
+                    <h2>new arrivals</h2>
+                </div>
+                <div className="slider-container">
+                    <Slider {...settings} responsive={responsive} className="slider">
+                        {newestProducts.map((book) => {
+                            return (
+                                <Book key={book._id} {...book}></Book>
+                            )
+                        })}
+                    </Slider>
+                </div>
             </div>
-            <ul className='product_center'>
-                {newestProducts.map((book) => {
-                    return (
-                        <Book key={book._id} {...book}></Book>
-                    )
-                })}
-            </ul>
-            <div className='title_center'>
-                <h4>book shop publishers</h4>
-                <h2>all products</h2>
+            <div className="slide-center">
+                <div className='title_center'>
+                    <h4>book shop publishers</h4>
+                    <h2>best sellers</h2>
+                </div>
+                <div className="slider-container">
+                    <Slider {...settings} responsive={responsive} className="slider">
+                        {bestSellers.map((book) => {
+                            return (
+                                <Book key={book._id} {...book}></Book>
+                            )
+                        })}
+                    </Slider>
+                </div>
             </div>
-            <ul className='product_center'>
-                {products.map((book) => {
-                    return (
-                        <Book key={book._id} {...book}></Book>
-                    )
-                })}
-            </ul>
+            <div className="event">
+                <div>
+                    <h3>Shop wide range of collections</h3>
+                    <h2>BOOK FESTIVAL</h2>
+                    <p>ALL BOOKS ARE FLAT 50% OFF</p>
+                </div>
+            </div>
+            <div className="slide-center">
+                <div className='title_center'>
+                    <h3>Our publishers</h3>
+                </div>
+                <div className="slider-container">
+                    <Slider {...autoSetting} responsive={responsive} className="slider">
+                        {publishers.map((publisher) => {
+                            return (
+                                <Publisher key={publisher.name} {...publisher}></Publisher>
+                            )
+                        })}
+                    </Slider>
+                </div>
+            </div>
         </div>
     )
 }

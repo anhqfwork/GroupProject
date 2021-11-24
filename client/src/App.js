@@ -5,22 +5,24 @@ import Header from "./components/header/Header"
 import Home from "./components/body/Home/Home"
 import Footer from "./components/footer/Footer"
 import Products from "./components/body/Products/Products"
-import Profile from "./components/profile/profile"
-import Contact from "./components/contact/contact"
+import Product from "./components/body/Product/Product"
+import Cart from "./components/body/Cart/Cart"
+import About from "./components/body/About/About"
+import Profile from "./components/body/Profile/Profile"
+import Contact from "./components/body/Contact/Contact"
 
 function App() {
     return (
         <Router>
             <Header />
             <Routes>
-                <Route element={<Home />} exact path="/">
-                </Route>
-                <Route element={<Products />} path="/products">
-                </Route>
-                <Route element={<Profile />} path="/profile">
-                </Route>
-                <Route element={<Contact />} path="/contact">  
-                </Route>
+                <Route element={<Home />} exact path="/" />
+                <Route element={<Products />} path="/products" />
+                <Route element={<Product />} path="/product" />
+                <Route element={<About />} exact path="/about" />
+                <Route element={<Cart />} exact path="/cart" />
+                <Route element={<Profile />} path="/profile" />
+                <Route element={<Contact />} path="/contact"></Route>
             </Routes>
             <Footer />
         </Router>

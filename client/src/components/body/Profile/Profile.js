@@ -1,5 +1,5 @@
 import React from 'react'
-import './profile.css'
+import './Profile.css'
 import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 
@@ -11,21 +11,21 @@ function profile() {
                 <div className="customeredit-info-wrapper">
                     <div className="customer-info-container">
                         <div className="customeredit-info">
-                            <div className="name-container"><span >Name:</span>
+                            <div className="name-container"><span >Name:</span> <span >Lý Anh Kiệt</span>
                             </div>
-                            <div className="phone-container"><span>Phone Number: </span>
-                            </div>
-                            <div>
-                                <span className="email-container">Email: </span>
+                            <div className="phone-container"><span>Phone Number: </span> <span >+123456789</span>
                             </div>
                             <div>
-                                <span className="address-container">Address: </span>
+                                <span className="email-container">Email: </span> <span >@gmail.com</span>
                             </div>
                             <div>
-                                <span className="gender-container">Gender: </span>
+                                <span className="address-container">Address: </span> <span >Ha Noi</span>
                             </div>
                             <div>
-                                <span className="dateofbirth-container">Date Of Birth: </span>
+                                <span className="gender-container">Gender: </span> <span >Male</span>
+                            </div>
+                            <div>
+                                <span className="dateofbirth-container">Date Of Birth: </span> <span >21/11/2001</span>
                             </div>
                         </div>
                     </div>

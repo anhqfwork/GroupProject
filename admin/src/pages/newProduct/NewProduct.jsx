@@ -10,19 +10,38 @@ function NewProduct() {
             <input type="file" placeholder="file" />
           </div>
           <div className="addProductItem">
-            <label htmlFor="">Name</label>
-            <input type="text" placeholder="Apple Airpods" />
+            <label htmlFor="">Title</label>
+            <input type="text" placeholder="Book 1" />
           </div>
           <div className="addProductItem">
-            <label htmlFor="">Stock</label>
-            <input type="text" placeholder="123m" />
+            <label htmlFor="">Category</label>
+            <input type="text" placeholder="Manga" />
           </div>
           <div className="addProductItem">
-            <label htmlFor="">Active</label>
-            <select name="active" id="active">
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-            </select>
+            <label htmlFor="">Publisher</label>
+            <input type="text" placeholder="KimDong" />
+          </div>
+          <div className="addProductItem">
+            <label htmlFor="">Price</label>
+            <input type="text" placeholder="20" />
+          </div>
+          <div className="addProductItem">
+            <label htmlFor="">In Stock</label>
+            <input type="text" placeholder="10" />
+          </div>
+          <div className="addProductItem">
+            <label htmlFor="">Description</label>
+            <input
+              type="text"
+              placeholder="A very good book that everyone loves"
+            />
+          </div>
+          <div className="addProductItem">
+            <label htmlFor="">Rating</label>
+            <input
+              type="text"
+              placeholder="4"
+            />
           </div>
           <button className="addProductButton">Create</button>
         </form>

@@ -6,7 +6,7 @@ const currentUser = {
     email: 'anh@gmail.com',
     address: 'Hanoi',
     phoneNumber: '0123457698',
-    avatar: 'https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png',
+    avatar: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
 }
 
 // Cart
@@ -18,7 +18,7 @@ const cart = {
             product: {
                 title: 'First Book',
                 price: 10,
-                img: 'https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png',
+                img: 'https://pub-static.fotor.com/assets/projects/pages/60d3cc50363a48d2a1825b7e90d49963_thumb.jpg',
             },
             quantity: 2,
         },
@@ -26,7 +26,7 @@ const cart = {
             product: {
                 title: 'Second Book',
                 price: 5,
-                img: 'https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png',
+                img: 'https://d1wnwqwep8qkqc.cloudfront.net/uploads/stage/stage_image/37836/optimized_large_thumb_stage.jpg',
             },
             quantity: 1,
         },
@@ -43,27 +43,27 @@ const products = [
     },
     {
         title: 'Book two',
-        img: 'https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png',
+        img: 'https://d1wnwqwep8qkqc.cloudfront.net/uploads/stage/stage_image/37836/optimized_large_thumb_stage.jpg',
         price: 10,
     },
     {
         title: 'Book three',
-        img: 'https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png',
+        img: 'https://assets-3.placeit.net/smart_templates/e639b9513adc63d37ee4f577433b787b/assets/wn5u193mcjesm2ycxacaltq8jdu68kmu.jpg',
         price: 40,
     },
     {
         title: 'Book four',
-        img: 'https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png',
+        img: 'https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781684123247/once-upon-a-story-the-jungle-book-9781684123247_hr.jpg',
         price: 50,
     },
     {
         title: 'Book five',
-        img: 'https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png',
+        img: 'https://www.designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-tf-2-a-million-to-one.jpg',
         price: 20,
     },
     {
         title: 'Book six',
-        img: 'https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png',
+        img: 'https://images2.penguinrandomhouse.com/cover/9780525541622',
         price: 20,
     },
 ]
@@ -72,23 +72,56 @@ const products = [
 const newestProducts = [
     {
         title: 'Book one',
-        img: 'https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png',
+        img: 'https://www.designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-tf-2-a-million-to-one.jpg',
         price: 20,
     },
     {
         title: 'Book two',
-        img: 'https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png',
+        img: 'https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781684123247/once-upon-a-story-the-jungle-book-9781684123247_hr.jpg',
         price: 10,
     },
     {
         title: 'Book three',
-        img: 'https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png',
+        img: 'https://images2.penguinrandomhouse.com/cover/9780525541622',
         price: 40,
     },
     {
         title: 'Book four',
-        img: 'https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png',
+        img: 'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/teal-and-orange-fantasy-book-cover-design-template-056106feb952bdfb7bfd16b4f9325c11.jpg?ts=1603170391',
         price: 50,
+    },
+]
+// New Arrivals
+const bestSellers = [
+    {
+        title: 'Book one',
+        img: 'https://pub-static.fotor.com/assets/projects/pages/60d3cc50363a48d2a1825b7e90d49963_thumb.jpg',
+        price: 20,
+    },
+    {
+        title: 'Book two',
+        img: 'https://d1wnwqwep8qkqc.cloudfront.net/uploads/stage/stage_image/37836/optimized_large_thumb_stage.jpg',
+        price: 10,
+    },
+    {
+        title: 'Book three',
+        img: 'https://assets-3.placeit.net/smart_templates/e639b9513adc63d37ee4f577433b787b/assets/wn5u193mcjesm2ycxacaltq8jdu68kmu.jpg',
+        price: 40,
+    },
+    {
+        title: 'Book four',
+        img: 'https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781684123247/once-upon-a-story-the-jungle-book-9781684123247_hr.jpg',
+        price: 50,
+    },
+    {
+        title: 'Book five',
+        img: 'https://www.designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-tf-2-a-million-to-one.jpg',
+        price: 20,
+    },
+    {
+        title: 'Book six',
+        img: 'https://images2.penguinrandomhouse.com/cover/9780525541622',
+        price: 20,
     },
 ]
 
@@ -100,9 +133,10 @@ const product = {
     publisher: 'KimDong',
     price: 20,
     inStock: 10,
+    inDelivered: 13,
     description: 'A very good book that everyone loves',
     author: 'Anh Tran',
-    img: 'https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png',
+    img: 'https://www.designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-tf-2-a-million-to-one.jpg',
     rating: 4,
 }
 
@@ -110,22 +144,32 @@ const product = {
 const relatedProducts = [
     {
         title: 'Book one',
-        img: 'https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png',
+        img: 'https://www.designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-tf-2-a-million-to-one.jpg',
         price: 20,
     },
     {
         title: 'Book two',
-        img: 'https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png',
+        img: 'https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781684123247/once-upon-a-story-the-jungle-book-9781684123247_hr.jpg',
         price: 10,
     },
     {
         title: 'Book three',
-        img: 'https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png',
+        img: 'https://images2.penguinrandomhouse.com/cover/9780525541622',
         price: 40,
     },
     {
         title: 'Book four',
-        img: 'https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png',
+        img: 'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/teal-and-orange-fantasy-book-cover-design-template-056106feb952bdfb7bfd16b4f9325c11.jpg?ts=1603170391',
+        price: 50,
+    },
+    {
+        title: 'Book five',
+        img: 'https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781684123247/once-upon-a-story-the-jungle-book-9781684123247_hr.jpg',
+        price: 50,
+    },
+    {
+        title: 'Book six',
+        img: 'https://www.designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-tf-2-a-million-to-one.jpg',
         price: 50,
     },
 ]
@@ -165,6 +209,26 @@ const imgSlide = [
 ]
 
 const categories = ['Manga', 'Light Novel', 'Novel', 'Detective']
-const publishers = ['KimDong', 'IPM', 'Tre', 'Amak', 'NhaNam']
-
-export { currentUser, cart, products, product, newestProducts, reviews, categories, publishers, relatedProducts, imgSlide }
+const publishers = [
+    {
+        name:'KimDong',
+        img:"https://upload.wikimedia.org/wikipedia/vi/3/3b/Logo_nxb_Kim_%C4%90%E1%BB%93ng.png"
+    },
+    {
+        name:'IPM',
+        img: "https://cdn0.fahasa.com/media/wysiwyg/NXB/Logo-IPM.jpg"
+    },
+    {
+        name:'Tre',
+        img:"https://locrpctricks.files.wordpress.com/2018/04/tumblr_static_f25n7rsd1jscgw4koogg04woc.png"
+    },
+    {
+        name:'Amak',
+        img:"https://amak.vn/wp-content/uploads/2020/04/Logo-AMAK.png"
+    },
+    {
+        name:'NhaNam',
+        img: "https://static.ybox.vn/2020/2/5/1582276635522-1561977250696-Nh%C3%A3%20Nam.jpg"
+    }
+]
+export { currentUser, cart, products, product, newestProducts, bestSellers, reviews, categories, publishers, relatedProducts, imgSlide }
