@@ -19,12 +19,19 @@
     line-height: 100px;
 }
 
-.customer-info{
+.customeredit-info{
     background-color: white;
     padding: 10px 10px;
+    width: 100%;
 }
 
-.form-name{
+.customeredit-info-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.formedit-name{
     padding: 10px 20px;
     border-radius: 0px;
     margin-left: 90px;
@@ -32,10 +39,10 @@
     font-size: 18px;
     margin-bottom: 0px;
     border: 2px solid rgb(179, 179, 179);
-    width: 25%;
+    width: 80%;
 }
 
-.form-phonenumber{
+.formedit-phonenumber{
     padding: 10px 20px;
     border-radius: 0px;
     margin-left: 16px;
@@ -43,10 +50,10 @@
     font-size: 18px;
     margin-bottom: 0px;
     border: 2px solid rgb(179, 179, 179);
-    width: 25%;
+    width: 80%;
 }
 
-.form-email{
+.formedit-email{
     padding: 10px 20px;
     border-radius: 0px;
     margin-left: 95px;
@@ -54,10 +61,10 @@
     font-size: 18px;
     margin-bottom: 0px;
     border: 2px solid rgb(179, 179, 179);
-    width: 25%;
+    width: 80%;
 }
 
-.form-address{
+.formedit-address{
     padding: 10px 20px;
     border-radius: 0px;
     margin-left: 73px;
@@ -65,7 +72,7 @@
     font-size: 18px;
     margin-bottom: 0px;
     border: 2px solid rgb(179, 179, 179);
-    width: 25%;
+    width: 80%;
 }
 
 .radio-button {
@@ -185,4 +192,16 @@
     border: 1.8px solid rgb(0, 0, 0);
     margin-left:1px;
     font-size: 15px;
+}
+
+.customer-info-container{
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    margin-right: 20px;
+}
+
+.customer-info{
+    background-color: white;
+    padding: 20px 10px;
 }

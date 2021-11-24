@@ -19,7 +19,8 @@ function App() {
                 </Route>
                 <Route element={<Profile />} path="/profile">
                 </Route>
-                <Route element={<Contact />} path="/contact"></Route>
+                <Route element={<Contact />} path="/contact">  
+                </Route>
             </Routes>
             <Footer />
         </Router>
