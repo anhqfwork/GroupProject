@@ -219,19 +219,17 @@ export const order = {
   price: 25,
   orderItems: [
     {
-      product: {
-        title: "First Book",
-        price: 10,
-        img: "https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png",
-      },
+      id: 1,
+      title: "First Book",
+      price: 10,
+      img: "https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png",
       quantity: 2,
     },
     {
-      product: {
-        title: "Second Book",
-        price: 5,
-        img: "https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png",
-      },
+      id: 2,
+      title: "Second Book",
+      price: 5,
+      img: "https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png",
       quantity: 1,
     },
   ],
