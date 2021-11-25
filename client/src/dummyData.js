@@ -4,7 +4,7 @@ const currentUser = {
     name: 'Anh Nguyen',
     username: 'anhnguyen',
     email: 'anh@gmail.com',
-    address: 'Hanoi',
+    address: '18 Hoang Quoc Viet, Cau Giay, Hanoi',
     phoneNumber: '0123457698',
     avatar: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
 }
@@ -17,6 +17,7 @@ const cart = {
         {
             product: {
                 title: 'First Book',
+                author: 'author',
                 price: 10,
                 img: 'https://pub-static.fotor.com/assets/projects/pages/60d3cc50363a48d2a1825b7e90d49963_thumb.jpg',
             },
@@ -25,6 +26,7 @@ const cart = {
         {
             product: {
                 title: 'Second Book',
+                author: 'author',
                 price: 5,
                 img: 'https://d1wnwqwep8qkqc.cloudfront.net/uploads/stage/stage_image/37836/optimized_large_thumb_stage.jpg',
             },
@@ -38,31 +40,37 @@ const cart = {
 const products = [
     {
         title: 'Book one',
+        author: 'author',
         img: 'https://pub-static.fotor.com/assets/projects/pages/60d3cc50363a48d2a1825b7e90d49963_thumb.jpg',
         price: 20,
     },
     {
         title: 'Book two',
+        author: 'author',
         img: 'https://d1wnwqwep8qkqc.cloudfront.net/uploads/stage/stage_image/37836/optimized_large_thumb_stage.jpg',
         price: 10,
     },
     {
         title: 'Book three',
+        author: 'author',
         img: 'https://assets-3.placeit.net/smart_templates/e639b9513adc63d37ee4f577433b787b/assets/wn5u193mcjesm2ycxacaltq8jdu68kmu.jpg',
         price: 40,
     },
     {
         title: 'Book four',
+        author: 'author',
         img: 'https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781684123247/once-upon-a-story-the-jungle-book-9781684123247_hr.jpg',
         price: 50,
     },
     {
         title: 'Book five',
+        author: 'author',
         img: 'https://www.designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-tf-2-a-million-to-one.jpg',
         price: 20,
     },
     {
         title: 'Book six',
+        author: 'author',
         img: 'https://images2.penguinrandomhouse.com/cover/9780525541622',
         price: 20,
     },
@@ -91,6 +99,7 @@ const newestProducts = [
         price: 50,
     },
 ]
+
 // New Arrivals
 const bestSellers = [
     {
@@ -180,15 +189,30 @@ const reviews = [
         _id: '1',
         product_id: '1',
         user_id: '1',
+        name: 'Anh Nguyen',
+        avatar: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
         rating: 4,
         comment: 'This book is good',
+        img: [
+            {
+                id: 1,
+                src: "https://www.designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-tf-2-a-million-to-one.jpg"
+            },
+            {
+                id: 2,
+                src: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"
+            },
+        ]
     },
     {
         _id: '2',
         product_id: '1',
-        user_id: '1',
+        user_id: '2',
+        name: 'Somebody',
+        avatar: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
         rating: 3,
         comment: 'This book is so-so',
+        img: []
     },
 ]
 

@@ -52,9 +52,9 @@ const Home = () => {
         return (
             <div className="slide">
                 <a href="/product">
-                    <img src={book.img} alt=""/>
+                    <img src={book.img} alt={book.title}/>
                     <h4>{book.title}</h4>
-                    <p>{book.price}</p>
+                    <p>${book.price}</p>
                 </a>
             </div>
         );
