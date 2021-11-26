@@ -6,6 +6,8 @@ const currentUser = {
     email: 'anh@gmail.com',
     address: '18 Hoang Quoc Viet, Cau Giay, Hanoi',
     phoneNumber: '0123457698',
+    gender: 'Male',
+    dob: '01/01/2001',
     avatar: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
 }
 
