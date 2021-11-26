@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import "./user.css";
 import {
   CalendarToday,
@@ -10,6 +10,19 @@ import {
 } from "@material-ui/icons";
 
 export default function User() {
+  const [avatar, setAvatar] = useState();
+  useEffect(() => {
+    return () => {
+      avatar && URL.revokeObjectURL(avatar.preview);
+    };
+  }, [avatar]);
+  const handlePreviewAvatar = (e) => {
+    const file = e.target.files[0];
+
+    file.preview = URL.createObjectURL(file);
+
+    setAvatar(file);
+  };
   return (
     <div className="user">
       <div className="userTitleContainer">
@@ -101,15 +114,18 @@ export default function User() {
             </div>
             <div className="userUpdateRight">
               <div className="userUpdateUpload">
-                <img
-                  src="https://images.pexels.com/photos/1319911/pexels-photo-1319911.jpeg?cs=srgb&dl=pexels-tu%E1%BA%A5n-ki%E1%BB%87t-jr-1319911.jpg&fm=jpg"
-                  alt=""
-                  className="userUpdateImg"
-                />
+                {avatar && (
+                  <img src={avatar.preview} alt="" className="userUpdateImg" />
+                )}
                 <label htmlFor="file">
                   <Publish className="userUpdateIcon" />
                 </label>
-                <input type="file" id="file" style={{ display: "none" }} />
+                <input
+                  type="file"
+                  id="file"
+                  style={{ display: "none" }}
+                  onChange={handlePreviewAvatar}
+                />
               </div>
               <button className="userUpdateButton">Update</button>
             </div>

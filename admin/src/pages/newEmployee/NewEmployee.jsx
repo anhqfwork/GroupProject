@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./newEmployee.css";
 import { Publish } from "@material-ui/icons";
 function NewEmployee() {
+  const [avatar, setAvatar] = useState();
+  useEffect(() => {
+    return () => {
+      avatar && URL.revokeObjectURL(avatar.preview);
+    };
+  }, [avatar]);
+  const handlePreviewAvatar = (e) => {
+    const file = e.target.files[0];
+
+    file.preview = URL.createObjectURL(file);
+
+    setAvatar(file);
+  };
   return (
     <div className="newEmployee">
       <div className="newEmployee">
@@ -34,17 +47,20 @@ function NewEmployee() {
           <div className="newEmployeeItem">
             <label htmlFor="">Admin</label>
             <select className="isAdminSelect">
-                <option>Yes</option>
-                <option>No</option>
+              <option>Yes</option>
+              <option>No</option>
             </select>
           </div>
           <div className="newEmployeeItem">
             <div className="newEmployeeUpload">
-              <img
-                src="https://images.pexels.com/photos/1319911/pexels-photo-1319911.jpeg?cs=srgb&dl=pexels-tu%E1%BA%A5n-ki%E1%BB%87t-jr-1319911.jpg&fm=jpg"
-                alt=""
-                className="employeeCreateImg"
-              />
+              {avatar && (
+                <img
+                  src={avatar.preview}
+                  alt=""
+                  className="employeeCreateImg"
+                />
+              )}
+
               <label htmlFor="file">
                 <Publish className="employeeUpdateIcon" />
               </label>
@@ -53,6 +69,7 @@ function NewEmployee() {
                 id="file"
                 placeholder="file"
                 style={{ display: "none" }}
+                onChange={handlePreviewAvatar}
               />
             </div>
           </div>

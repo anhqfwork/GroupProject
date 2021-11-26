@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./product.css";
 import Chart from "../../components/chart/Chart";
 import { productData } from "../../dummyData";
 import { Publish } from "@material-ui/icons";
 function Product() {
+  const [avatar, setAvatar] = useState();
+  useEffect(() => {
+    return () => {
+      avatar && URL.revokeObjectURL(avatar.preview);
+    };
+  }, [avatar]);
+  const handlePreviewAvatar = (e) => {
+    const file = e.target.files[0];
+
+    file.preview = URL.createObjectURL(file);
+
+    setAvatar(file);
+  };
   return (
     <div className="product">
       <div className="productTitleContainer">
@@ -51,15 +64,18 @@ function Product() {
           </div>
           <div className="productFormRight">
             <div className="productUpload">
-              <img
-                src="https://images.pexels.com/photos/1370295/pexels-photo-1370295.jpeg?cs=srgb&dl=pexels-element-digital-1370295.jpg&fm=jpg"
-                alt=""
-                className="productUploadImg"
-              />
+              {avatar && (
+                <img src={avatar.preview} alt="" className="productUploadImg" />
+              )}
               <label htmlFor="file">
                 <Publish className="productUploadIcon" />
               </label>
-              <input type="file" id="file" style={{ display: "none" }} />
+              <input
+                type="file"
+                id="file"
+                style={{ display: "none" }}
+                onChange={handlePreviewAvatar}
+              />
             </div>
           </div>
         </form>

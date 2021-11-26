@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./newUser.css";
 import { Publish } from "@material-ui/icons";
 export default function NewUser() {
+  const [avatar, setAvatar] = useState();
+  useEffect(() => {
+    return () => {
+      avatar && URL.revokeObjectURL(avatar.preview);
+    }
+  }, [avatar])
+  const handlePreviewAvatar = (e) => {
+    const file = e.target.files[0];
+
+    file.preview = URL.createObjectURL(file);
+
+    setAvatar(file);
+  };
   return (
     <div className="newUser">
       <h1 className="newUserTitle">New User</h1>
@@ -32,11 +45,9 @@ export default function NewUser() {
         </div>
         <div className="newUserItem">
           <div className="newUserUpload">
-            <img
-              src="https://images.pexels.com/photos/1319911/pexels-photo-1319911.jpeg?cs=srgb&dl=pexels-tu%E1%BA%A5n-ki%E1%BB%87t-jr-1319911.jpg&fm=jpg"
-              alt=""
-              className="userCreateImg"
-            />
+            {avatar && (
+              <img src={avatar.preview} alt="" className="userCreateImg" />
+            )}
             <label htmlFor="file">
               <Publish className="userUpdateIcon" />
             </label>
@@ -45,6 +56,7 @@ export default function NewUser() {
               id="file"
               placeholder="file"
               style={{ display: "none" }}
+              onChange={handlePreviewAvatar}
             />
           </div>
         </div>
