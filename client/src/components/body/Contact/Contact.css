@@ -1,60 +1,46 @@
-.contactus-container{
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 0px 90px;
-    background-color: #ffffff;
-    width: 100%;
-    justify-content: center; 
+.contactus-container {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 1rem 0;
+  width: 90vw;
 }
-
-.contact-contaier h2,h3{
-    width: 100%;
-    flex-flow: row;
-    line-height: 70px;
-    align-items: center;
+.contactus {
+  margin-top: 1rem;
 }
-
-.contactlist-links {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.contact-container {
+  background: var(--clr-white);
+  border-radius: var(--radius);
+  padding: 1rem;
 }
+/* .contact-container h2,
+.contact-container h3 {
+  flex-flow: row;
+  align-items: center;
+} */
 
-.contactlist-items {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 30px;
+/* .contactlist-links {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+.contactlist-items h4 {
+  margin: 0;
+  font-size: 18px;
 }
-
-.contactlist-wrapper {
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
-    font-size: 18px;
-    padding: 30px;
+.contactlist-items p {
+  margin-left: 40px;
 }
-
-.contactlist-wrapper h3{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    font-size: 30px;
-    flex-direction: column;
-}
-
-.contact-icon {
-    height: 15px;
-}
-
 .googlemap {
-    width: 100%;
+  width: 100%;
 }
-
-.footer-icon {
-    height: 15px;
+@media screen and (min-width: 1000px) {
+  .contact-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  .googlemap {
+    width: 600px;
+    height: 500px;
+  }
 }
