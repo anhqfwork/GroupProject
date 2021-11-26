@@ -32,19 +32,19 @@ function profile() {
                     <div className="customeredit-info">
                         <div className="name-container">
                             <span >Name: </span>
-                            <input className='formedit-name' name='name' type='name' placeholder='Enter Name' />
+                            <input className='formedit-name' name='name' type='name' placeholder='Lý Anh Kiệt' />
                         </div>
                         <div className="phonenumber-container">
                             <span>Phone Number: </span>
-                            <input className='formedit-phonenumber' name='phonenumber' type='phonenumber' placeholder='Enter Phone Number' />
+                            <input className='formedit-phonenumber' name='phonenumber' type='phonenumber' placeholder='12345678' />
                         </div>
                         <div>
                             <span className="email-container">Email: </span>
-                            <input className='formedit-email' name='email' type='email' placeholder='Enter Email' />
+                            <input className='formedit-email' name='email' type='email' placeholder='@gmail.com' />
                         </div>
                         <div>
                             <span className="address-container">Address: </span>
-                            <input className='formedit-address' name='address' type='address' placeholder='Enter Address' />
+                            <input className='formedit-address' name='address' type='address' placeholder='Ha Noi' />
                         </div>
                         <span className="gender-container">Gender: </span>
                         <label className="radio-button">Male
