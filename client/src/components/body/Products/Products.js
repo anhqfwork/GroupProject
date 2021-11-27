@@ -1,13 +1,22 @@
 import React, { useState } from 'react'
 import './Products.css'
-import { Button, IconButton, FormGroup, FormControlLabel, ListItemButton, ListItemText, RadioGroup, Radio, Breadcrumbs, Typography, Link } from '@mui/material'
+import { Button, IconButton, FormGroup, FormControlLabel, ListItemButton, ListItemText, RadioGroup, Radio, Breadcrumbs, Typography, Link, Snackbar, Alert } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search';
 import HomeIcon from '@mui/icons-material/Home';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import { products, categories, publishers } from '../../../dummyData';
 
 const Products = () => {
-    
+    const [open, setOpen] = useState(false);
+    const handleClick = () => {
+        setOpen(true);
+    };
+    const handleClose = (reason) => {
+        if (reason === 'clickaway') {
+        return;
+        }
+        setOpen(false);
+    };
     const Book = (book) => {
         return (
             <li className='product_item'>
@@ -18,7 +27,13 @@ const Products = () => {
                 <h3>{book.title}</h3>
                 <h5>{book.author}</h5>
                 <h4>${book.price}</h4>
-                <Button variant="contained">add to cart</Button>
+                <Button variant="contained" onClick={handleClick}>add to cart</Button>
+                <Snackbar 
+                    open={open}
+                    autoHideDuration={5000}
+                    onClose={handleClose}>
+                    <Alert onClose={handleClose} severity="success">Add to cart successfully</Alert>
+                </Snackbar>
             </li>
         );
     };

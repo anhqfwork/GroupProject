@@ -8,12 +8,6 @@ import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
-import phone from "../../Image/phone.png";
-import mail from "../../Image/mail.png";
-import location from "../../Image/location.png";
-import facebook from "../../Image/facebook.png";
-import twitter from "../../Image/twitter.png";
-import  youtube from "../../Image/youtube.png";
 import { IconButton } from '@mui/material';
 
 function Footer() {
@@ -62,16 +56,16 @@ function Footer() {
         <p style={{textAlign:'center'}}>Copyright @2021 | Designed by <a href="/" className='bookstore'>BookStore</a></p>
         <ul className="footer_bottom_ul">
           <li>
-            <a href='https://www.facebook.com/'>
+            <a href="https://www.facebook.com/usth.edu.vn">
                 <IconButton color="primary"><FacebookRoundedIcon /></IconButton>
             </a>
             <a href='https://twitter.com/'>
                 <IconButton color="primary"><TwitterIcon /></IconButton>
             </a>
-            <a href='https://www.instagram.com/'>
+            <a href='https://www.instagram.com/usth_official'>
                 <IconButton color="primary"><InstagramIcon /></IconButton>
             </a>
-            <a href='https://www.youtube.com/'>
+            <a href='https://www.youtube.com/channel/UCqc5GUt4MW5ScbV7XqUWhiQ'>
                 <IconButton color="primary"><YouTubeIcon /></IconButton>
             </a>
           </li>

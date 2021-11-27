@@ -1,5 +1,5 @@
-import { Button, Rating, ButtonGroup, Breadcrumbs, Typography, Link, List, ListItem, ListItemAvatar, Avatar, ListItemText, ImageList, ImageListItem, Grid, Stack } from '@mui/material'
-import React from 'react'
+import { Button, Rating, ButtonGroup, Breadcrumbs, Typography, Link, List, ListItem, ListItemAvatar, Avatar, ListItemText, ImageList, Snackbar, Alert, Grid, Stack } from '@mui/material'
+import React, { useState } from 'react'
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -16,7 +16,16 @@ import './Product.css'
 
 const Product = () => {
     const [count, setCount] = React.useState(1);
-
+    const [open, setOpen] = useState(false);
+    const handleClick = () => {
+        setOpen(true);
+    };
+    const handleClose = (reason) => {
+        if (reason === 'clickaway') {
+        return;
+        }
+        setOpen(false);
+    };
     const settings = {
         dots: true,
         infinite: false,
@@ -64,7 +73,7 @@ const Product = () => {
                         <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
                         Home
                     </Link>
-                    <Link underline="hover" color="inherit" href="/" sx={{ display: 'flex', alignItems: 'center' }}>
+                    <Link underline="hover" color="inherit" href="/products" sx={{ display: 'flex', alignItems: 'center' }}>
                         <MenuBookIcon sx={{ mr: 0.5 }} fontSize="inherit" />
                         Products
                     </Link>
@@ -110,7 +119,13 @@ const Product = () => {
                                 </Button>
                             </ButtonGroup>    
                             <Typography variant='caption' style={{marginBottom:20, color:'grey', float:'left'}}>(There are 10 products in stock)</Typography>
-                            <Button variant="contained" color="error" className="add-btn" sx={{width:300, height:50}}>Add To Cart</Button>
+                            <Button onClick={handleClick} variant="contained" color="error" className="add-btn" sx={{width:300, height:50}}>Add To Cart</Button>
+                            <Snackbar 
+                                open={open}
+                                autoHideDuration={5000}
+                                onClose={handleClose}>
+                                <Alert onClose={handleClose} severity="success">Add to cart successfully</Alert>
+                            </Snackbar>
                             <div style={{margin:'20px 0', float:'left'}}>
                                 <p style={{fontWeight:'bold'}}>Offers for customers who order online:</p>
                                 <p style={{display:'flex',alignItems:'center'}}><CheckCircleRoundedIcon fontSize="small" color="primary"/>Free protective cover for all products.</p>
