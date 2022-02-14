@@ -1,20 +1,35 @@
 .about-container {
-    margin-left: 100px;
+  /* margin-left: 100px;
     padding: 30px;
-    margin-right: 100px;
+    margin-right: 100px; */
+  max-width: 1170px;
+  width: 90vw;
+  margin: 0 auto;
+  padding: 1rem 0;
 }
-
-.about-container h1 {
-    font-size: 35px;
+.aboutus {
+  margin-top: 1rem;
 }
-
+.aboutus-container {
+  background: var(--clr-white);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
 .about-header {
-    padding-top: 10px;
-    margin-right: 10px;
-    font-size: 20px;
+  margin: 10px;
 }
-
 .about-content {
-    font-size: 20px;
-    padding-top: 10px;
+  margin-top: 1rem;
+}
+@media screen and (min-width: 800px) {
+  .about-flex {
+    display: flex;
+    justify-content: space-around;
+    gap: 3rem;
+    align-items: center;
+  }
+  .about-content {
+    margin: 0;
+    max-width: 500px;
+  }
 }

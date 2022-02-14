@@ -82,7 +82,7 @@ const Product = () => {
         if (res && res.data) {
             console.log(res.data)
             dispatch(addProduct({ item: { product, quantity }, quantity }))
-            toast.success('Added To Cart!', {
+            toast.success('Add To Cart Successfully!', {
                 position: toast.POSITION.TOP_RIGHT,
                 autoClose: 1000,
             })

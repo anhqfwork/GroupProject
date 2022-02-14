@@ -3,7 +3,7 @@ import './Header.css'
 import MenuIcon from '@mui/icons-material/Menu'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import IconButton from '@mui/material/IconButton'
-import { Avatar } from '@mui/material'
+import { Avatar, Menu, MenuItem } from '@mui/material'
 import { useGlobalContext } from '../../context'
 import { Link, Navigate } from 'react-router-dom'
 import { categories, currentUser } from '../../dummyData'
@@ -36,6 +36,14 @@ const Header = () => {
     }
 
     // const user = ''
+    const [anchorEl, setAnchorEl] = useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
     return (
         <header>
             <div
@@ -70,6 +78,22 @@ const Header = () => {
                                 />
                             </IconButton>
                         </a>
+                        {/* <a className='nav-toggle'> 
+                            <IconButton onClick={handleClick}>
+                                <Avatar alt={currentUser.name} src={currentUser.avatar} sx={{ width: 30, height: 30 }} />
+                            </IconButton>
+                            <Menu
+                                anchorEl={anchorEl}
+                                open={open}
+                                onClose={handleClose}
+                            >
+                                <MenuItem onClick={handleClose}><a href="/profile" style={{color:"var(--clr-black)"}}>Profile</a></MenuItem>
+                                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                            </Menu>
+                            <IconButton href="/cart">
+                                <ShoppingCartIcon sx={{ width: 30, height: 30 }} style={{color: "white"}} />
+                            </IconButton>
+                        </a> */}
 
                         <Sidebar />
                     </div>
@@ -97,8 +121,21 @@ const Header = () => {
                                 src={user ? user.name : ''}
                                 sx={{ width: 30, height: 30 }}
                             />
+                            </IconButton>
+                        </a>
+                    {/* <a className='cart-toggle'>
+                        <IconButton onClick={handleClick}>
+                            <Avatar alt={currentUser.name} src={currentUser.avatar} sx={{ width: 30, height: 30 }} />
                         </IconButton>
-                    </a>
+                        <Menu
+                            anchorEl={anchorEl}
+                            open={open}
+                            onClose={handleClose}
+                        >
+                            <MenuItem onClick={handleClose}><a href="/profile" style={{color:"var(--clr-black)"}}>Profile</a></MenuItem>
+                            <MenuItem onClick={handleClose}>Logout</MenuItem>
+                        </Menu>
+                    </a> */}
                     <Link
                         to={currentUser ? '/cart' : '/login'}
                         className='cart-toggle'

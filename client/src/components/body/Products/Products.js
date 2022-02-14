@@ -18,6 +18,10 @@ import HomeIcon from '@mui/icons-material/Home'
 import MenuBookIcon from '@mui/icons-material/MenuBook'
 import { axios } from '../../../axios'
 
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+toast.configure()
+
 const Products = () => {
     const [products, setProducts] = useState([])
     const [categories, setCategories] = useState([])
@@ -91,6 +95,7 @@ const Products = () => {
                 <h5>{book.authorName}</h5>
                 <h4>{book.price} VND</h4>
                 <Button variant='contained' href={`/products/${book._id}`}>see details</Button>
+
             </li>
         )
     }
