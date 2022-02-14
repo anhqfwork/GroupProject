@@ -141,26 +141,21 @@ const cartCtrl = {
             },
             { new: true }
         )
+        foundCart.price = 0
+        foundCart.quantity = 0
         console.log('Found Cart', foundCart)
-        let cartItems = []
-        let totalPrice = 0
-        let totalQuantity = 0
+
         for (let i = 0; i < foundCart.cartItems.length; i++) {
             const product = await Product.findOne({
                 _id: foundCart.cartItems[i].productId,
             })
-            cartItems.push(product)
-            totalPrice += cartItems[i].quantity * product.price
-            totalQuantity += cartItems[i].quantity
+            foundCart.price += foundCart.cartItems[i].quantity * product.price
+            foundCart.quantity += foundCart.cartItems[i].quantity
         }
 
-        console.log('cartItems:', cartItems)
-        foundCart.price = totalPrice
-        foundCart.quantity = totalQuantity
-        foundCart.cartItems = cartItems
-        // console.log(foundCart)
+        console.log('Final FoundCart', foundCart)
 
-        // foundCart.save()
+        foundCart.save()
 
         return res.status(200).json({
             message: 'Remove the cart successfully',

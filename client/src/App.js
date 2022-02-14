@@ -38,8 +38,8 @@ function App() {
                     <Route path=':searchTerm' element={<SearchProducts />} />
                 </Route>
                 <Route element={<About />} exact path='/about' />
-                <Route element={<Cart />} exact path='/cart' />
-                <Route element={<Profile />} path='/profile' />
+                <Route element={user ? <Cart /> : <Navigate to='/login' />} exact path='/cart' />
+                <Route element={user ? <Profile />: <Navigate to='login' />} path='/profile' />
                 <Route element={<Contact />} path='/contact'></Route>
             </Routes>
             <Footer />

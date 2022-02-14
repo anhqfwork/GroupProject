@@ -4,7 +4,7 @@ const { verifyUserToken, verifyEmployeeToken, adminToken, employeeToken } = requ
 const userCtrl = require('../controller/user')
 
 // router.get('/:id', verifyUserToken, userCtrl.getUser)
-router.patch('/:id', verifyUserToken, userCtrl.updateUser)
+router.patch('/:id', userCtrl.updateUser)
 // router.delete('/:id', verifyEmployeeToken, adminToken, userCtrl.deleteUser)
 // router.get('/getAllUsers', verifyEmployeeToken, adminToken, userCtrl.getAllUsers)
 // router.patch('/:id/changePassword', verifyUserToken, userCtrl.changePassword)
