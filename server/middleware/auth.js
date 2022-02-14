@@ -2,15 +2,24 @@ const jwt = require('jsonwebtoken')
 const User = require('../models/user')
 const mongoose = require('mongoose')
 const Employee = require('../models/employee')
-const verifyUserToken = (req, res, next) => {
-  const authHeader = req.header('Authorization')
-  const token = authHeader && authHeader.split(' ')[1]
 
-  if (!token) return res.status(401).json({ success: false, message: 'Access token not found' })
+const verifyUserToken = (req, res, next) => {
+  const authHeader = req.headers.token
+  if (authHeader) {
+    console.log(authHeader)
+  } else {
+    console.log("No AuthHeader")
+  }
+  const token = authHeader && authHeader.split(' ')[1]
+  
+  if (!token) {
+    console.log("No Token")
+    return res.status(401).json({ success: false, message: 'Access token not found' })
+  }
 
   try {
     const decoded = jwt.verify(token, 'test')
-
+    console.log(decoded)
     req.userId = decoded.userId
     next()
   } catch (error) {
@@ -20,7 +29,7 @@ const verifyUserToken = (req, res, next) => {
 }
 
 const verifyEmployeeToken = (req, res, next) => {
-  const authHeader = req.header('Authorization')
+  const authHeader = req.headers.token
   const token = authHeader && authHeader.split(' ')[1]
 
   if (!token) return res.status(401).json({ success: false, message: 'Access token not found' })

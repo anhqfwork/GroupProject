@@ -1,20 +1,95 @@
-import React from "react";
+import React, { useState, useEffect } from 'react'
 import './Cart.css'
-import { Button, ButtonGroup, IconButton, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
-import { cart, currentUser } from "../../../dummyData";
-import DeleteIcon from '@mui/icons-material/Delete';
+import {
+    Button,
+    ButtonGroup,
+    IconButton,
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow,
+    Typography,
+} from '@mui/material'
+import DeleteIcon from '@mui/icons-material/Delete'
 import AddIcon from '@mui/icons-material/Add'
 import RemoveIcon from '@mui/icons-material/Remove'
+import { useSelector, useDispatch } from 'react-redux'
+import { axios } from '../../../axios'
+import { deleteAllProducts, deleteProduct } from '../../../redux/cartRedux'
+
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+toast.configure()
 
 const Cart = () => {
+    // const cart = useSelector((state) => state.cart)
+    const user = useSelector((state) => state.user.currentUser.result)
+
+    const [cart, setCart] = useState()
+
+    const getCart = async () => {
+        const res = await axios.get('api/cart/userCartInfo').catch((err) => console.log(err))
+        if (res && res.data) {
+            console.log(res.data.foundCart)
+            setCart(res.data.foundCart)
+        }
+    }
+
+    useEffect(() => {
+        getCart()
+    }, [])
+
+    const dispatch = useDispatch()
+
+    const handleCashSubmit = async () => {
+        const order = {
+            orderItems: cart.cartItems,
+            quantity: cart.quantity,
+            totalPrice: cart.price,
+            paymentMethod: "Cash",
+            status: "Pending",
+            shippingAddress: user.address,
+        }
+        console.log(order)
+        const res = await axios.post('api/order/addToOrder', order).catch((err) => console.log(err))
+        if (res && res.data) {
+            console.log(res.data)
+            getCart()
+            dispatch(deleteAllProducts())
+            toast.success('Order Submitted Successfully!', {
+                position: toast.POSITION.TOP_RIGHT,
+                autoClose: 1000,
+            })
+        }
+
+    }
+
+    const handleDeleteFromCart = async (id, item) => {
+        console.log(id)
+        const res = await axios.put('api/cart/removeFromCart', {productId: id, userId: user._id}).catch((err) => console.log(err))
+        if (res && res.data) {
+            console.log(res.data)
+            getCart()
+            dispatch(deleteProduct({item: {product: item.product}, quantity: item.quantity}))
+        }
+    }
+
     return (
         <main>
             <h3 className='cart-header'>Your cart</h3>
-            <div className="cart">
-                <div className="cart-module">
-                    <label htmlFor="promo-code">Enter a promotional code</label>
-                    <input id="promo-code" type="text" name="promo-code" maxlength="5" className="promo-code-field" />
-                    <button className="promo-code-cta">Apply</button>
+            <div className='cart'>
+                <div className='cart-module'>
+                    <label htmlFor='promo-code'>Enter a promotional code</label>
+                    <input
+                        id='promo-code'
+                        type='text'
+                        name='promo-code'
+                        maxlength='5'
+                        className='promo-code-field'
+                    />
+                    <button className='promo-code-cta'>Apply</button>
                 </div>
                 {/* <div className="cart-labels">
                     <ul>
@@ -53,62 +128,119 @@ const Cart = () => {
                     )
                     })}
                 </div> */}
-                <TableContainer className="cart_table">
+                {cart && (
+                <TableContainer className='cart_table'>
                     <Table>
                         <TableHead>
                             <TableRow>
-                                <TableCell width="100px">Item</TableCell>
-                                <TableCell align="center">Unit price</TableCell>
-                                <TableCell align="center">Quantity</TableCell>
-                                <TableCell align="center">Price</TableCell>
-                                <TableCell align="center"><IconButton><DeleteIcon /></IconButton></TableCell>
+                                <TableCell width='100px'>Item</TableCell>
+                                <TableCell align='center'>Unit price</TableCell>
+                                <TableCell align='center'>Quantity</TableCell>
+                                <TableCell align='center'>Price</TableCell>
+                                <TableCell align='center'>
+                                    <IconButton>
+                                        <DeleteIcon />
+                                    </IconButton>
+                                </TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {cart.cartItems.length === 0 ? <TableCell style={{width:200}}>No item in cart.</TableCell> : null}
-                            {cart.cartItems.map((item) => {
+                            {cart && cart.cartItems.length === 0 ? (
+                                <TableCell style={{ width: 200 }}>
+                                    No item in cart.
+                                </TableCell>
+                            ) : null}
+                            {cart && cart.cartItems.map((item) => {
                                 return (
                                     <TableRow>
-                                        <TableCell padding='normal' style={{paddingTop:15, display:'flex', alignItems:'center'}}>
-                                            <img src={item.product.img} alt={item.product.title} height="200px" style={{objectFit:'cover'}}/>
-                                            <div style={{marginLeft:15, width:300}}>
+                                        <TableCell
+                                            padding='normal'
+                                            style={{
+                                                paddingTop: 15,
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                            }}
+                                        >
+                                            <img
+                                                src={item.product.image || ''}
+                                                alt={item.product.title}
+                                                height='200px'
+                                                style={{ objectFit: 'cover' }}
+                                            />
+                                            <div
+                                                style={{
+                                                    marginLeft: 15,
+                                                    width: 300,
+                                                }}
+                                            >
                                                 <h4>{item.product.title}</h4>
-                                                <p>{item.product.author}</p>
+                                                <p>{item.product.authorName}</p>
                                             </div>
                                         </TableCell>
-                                        <TableCell align="center">${item.product.price}</TableCell>
-                                        <TableCell align="center">{item.quantity}</TableCell>
-                                        <TableCell align="center" style={{color:'red'}}>${item.product.price * item.quantity}</TableCell>
-                                        <TableCell align="center"><IconButton><DeleteIcon /></IconButton></TableCell>
+                                        <TableCell align='center'>
+                                            ${item.product.price}
+                                        </TableCell>
+                                        <TableCell align='center'>
+                                            {item.quantity}
+                                        </TableCell>
+                                        <TableCell
+                                            align='center'
+                                            style={{ color: 'red' }}
+                                        >
+                                            $
+                                            {item.product.price * item.quantity}
+                                        </TableCell>
+                                        <TableCell align='center'>
+                                            <IconButton onClick={() => handleDeleteFromCart(item.product._id, item)}>
+                                                <DeleteIcon />
+                                            </IconButton>
+                                        </TableCell>
                                     </TableRow>
                                 )
                             })}
                         </TableBody>
                     </Table>
-                </TableContainer>
+                </TableContainer>)}
             </div>
-            <aside className="cart-aside">
-                <div className="summary">
-                    <div className="summary-delivery">
-                        <div style={{fontSize:14, fontWeight:'bold'}}>Delivery to: <Button href="/profile">Change</Button></div>
-                        <div style={{fontWeight:'bold'}}>{currentUser.name} | {currentUser.phoneNumber}</div>
-                        <div>{currentUser.address}</div>
+            <aside className='cart-aside'>
+                <div className='summary'>
+                    <div className='summary-delivery'>
+                        <div style={{ fontSize: 14, fontWeight: 'bold' }}>
+                            Delivery to: <Button href='/profile'>Change</Button>
+                        </div>
+                        <div style={{ fontWeight: 'bold' }}>
+                            {user.name} | {user.phoneNumber}
+                        </div>
+                        <div>{user.address}</div>
                     </div>
-                    <div className="summary-total-items">{cart.cartItems.length} items in your Bag</div>
-                    <div className="summary-subtotal">
-                        <div className="subtotal-title">Subtotal</div>
-                        <div className="subtotal-value" id="cart-subtotal">{cart.price}</div>
-                        <div className="summary-promo hide">
-                            <div className="promo-title">Promotion</div>
-                            <div className="promo-value" id="cart-promo"></div>
+                    <div className='summary-total-items'>
+                        {cart && cart.quantity} items in your Bag
+                    </div>
+                    <div className='summary-subtotal'>
+                        <div className='subtotal-title'>Subtotal</div>
+                        <div className='subtotal-value' id='cart-subtotal'>
+                            {cart && cart.price}
+                        </div>
+                        <div className='summary-promo hide'>
+                            <div className='promo-title'>Promotion</div>
+                            <div className='promo-value' id='cart-promo'></div>
                         </div>
                     </div>
-                    <div className="summary-total">
-                        <div className="total-title">Total</div>
-                        <div className="total-value" id="cart-total">{cart.price}</div>
+                    <div className='summary-total'>
+                        <div className='total-title'>Total</div>
+                        <div className='total-value' id='cart-total'>
+                            {cart && cart.price}
+                        </div>
                     </div>
-                    <div className="summary-checkout">
-                    <Button variant="contained" type='submit' style={{width:'100%', margin:'0 auto'}}>Submit</Button>
+                    <div className='summary-checkout'>
+                        <Button
+                            variant='contained'
+                            type='submit'
+                            style={{ width: '100%', margin: '0 auto' }}
+                            onClick={() => handleCashSubmit()}
+                        >
+                            Submit
+                        </Button>
                     </div>
                 </div>
             </aside>

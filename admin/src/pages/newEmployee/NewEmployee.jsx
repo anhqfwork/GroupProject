@@ -1,83 +1,114 @@
-import React, { useState, useEffect } from "react";
-import "./newEmployee.css";
-import { Publish } from "@material-ui/icons";
+import React, { useState, useEffect } from 'react'
+import './newEmployee.css'
+import { Publish } from '@material-ui/icons'
+import { axios } from '../../axios'
+
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+toast.configure()
+
 function NewEmployee() {
-  const [avatar, setAvatar] = useState();
-  useEffect(() => {
-    return () => {
-      avatar && URL.revokeObjectURL(avatar.preview);
-    };
-  }, [avatar]);
-  const handlePreviewAvatar = (e) => {
-    const file = e.target.files[0];
+    const [email, setEmail] = useState()
+    const [username, setUsername] = useState()
+    const [name, setName] = useState()
+    const [password, setPassword] = useState()
+    const [confirmedPassword, setConfirmedPassword] = useState()
 
-    file.preview = URL.createObjectURL(file);
+    const changeEmail = (e) => {
+        setEmail(e.target.value)
+    }
 
-    setAvatar(file);
-  };
-  return (
-    <div className="newEmployee">
-      <div className="newEmployee">
-        <h1 className="newEmployeeTitle">New Employee</h1>
-        <form action="" className="newEmployeeForm">
-          <div className="newEmployeeItem">
-            <label htmlFor="">Username</label>
-            <input type="text" placeholder="john" />
-          </div>
-          <div className="newEmployeeItem">
-            <label htmlFor="">Full Name</label>
-            <input type="text" placeholder="John Smith" />
-          </div>
-          <div className="newEmployeeItem">
-            <label htmlFor="">Email</label>
-            <input type="text" placeholder="john@gmail.com" />
-          </div>
-          <div className="newEmployeeItem">
-            <label htmlFor="">Password</label>
-            <input type="text" placeholder="password" />
-          </div>
-          <div className="newEmployeeItem">
-            <label htmlFor="">Phone</label>
-            <input type="text" placeholder="+1 123 456 78" />
-          </div>
-          <div className="newEmployeeItem">
-            <label htmlFor="">Address</label>
-            <input type="text" placeholder="New York | USA" />
-          </div>
-          <div className="newEmployeeItem">
-            <label htmlFor="">Admin</label>
-            <select className="isAdminSelect">
-              <option>Yes</option>
-              <option>No</option>
-            </select>
-          </div>
-          <div className="newEmployeeItem">
-            <div className="newEmployeeUpload">
-              {avatar && (
-                <img
-                  src={avatar.preview}
-                  alt=""
-                  className="employeeCreateImg"
-                />
-              )}
+    const changeUsername = (e) => {
+        setUsername(e.target.value)
+    }
 
-              <label htmlFor="file">
-                <Publish className="employeeUpdateIcon" />
-              </label>
-              <input
-                type="file"
-                id="file"
-                placeholder="file"
-                style={{ display: "none" }}
-                onChange={handlePreviewAvatar}
-              />
+    const changeName = (e) => {
+        setName(e.target.value)
+    }
+
+    const changePassword = (e) => {
+        setPassword(e.target.value)
+    }
+
+    const changeConfirmedPassword = (e) => {
+        setConfirmedPassword(e.target.value)
+    }
+
+    const handleSubmit = () => {
+        addEmployee()
+    }
+
+    const addEmployee = async () => {
+        const newEmployee = {
+            username,
+            name,
+            password,
+            email,
+            confirmedPassword,
+        }
+        console.log(newEmployee)
+        const res = await axios
+            .post('api/auth/employee/signup', newEmployee)
+            .catch((err) => console.log(err))
+        if (res && res.data) {
+            console.log(res.data)
+            toast.success('Create Employee Successfully!', {
+                position: toast.POSITION.TOP_RIGHT,
+                autoClose: 1000,
+            })
+        }
+    }
+
+    return (
+        <div className='newEmployee'>
+            <div className='newEmployee'>
+                <h1 className='newEmployeeTitle'>New Employee</h1>
+                <form action='' className='newEmployeeForm'>
+                    <div className='newEmployeeItem'>
+                        <label htmlFor=''>Username</label>
+                        <input
+                            type='text'
+                            placeholder='anhqq'
+                            onChange={changeUsername}
+                        />
+                    </div>
+                    <div className='newEmployeeItem'>
+                        <label htmlFor=''>Full Name</label>
+                        <input
+                            type='text'
+                            placeholder='John Smith'
+                            onChange={changeName}
+                        />
+                    </div>
+                    <div className='newEmployeeItem'>
+                        <label htmlFor=''>Email</label>
+                        <input
+                            type='text'
+                            placeholder='john@gmail.com'
+                            onChange={changeEmail}
+                        />
+                    </div>
+                    <div className='newEmployeeItem'>
+                        <label htmlFor=''>Password</label>
+                        <input
+                            type='text'
+                            placeholder='password'
+                            onChange={changePassword}
+                        />
+                    </div>
+                    <div className='newEmployeeItem'>
+                        <label htmlFor=''>Confirmed Password</label>
+                        <input
+                            type='text'
+                            placeholder='password'
+                            onChange={changeConfirmedPassword}
+                        />
+                    </div>
+                </form>
+                <button className='newEmployeeButton' onClick={() => handleSubmit()}>Create</button>
             </div>
-          </div>
-        </form>
-        <button className="newEmployeeButton">Create</button>
-      </div>
-    </div>
-  );
+        </div>
+    )
 }
 
-export default NewEmployee;
+export default NewEmployee

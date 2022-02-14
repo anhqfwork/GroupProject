@@ -18,6 +18,8 @@ router.get('/', verifyUserToken, async (req, res) => {
   }
 })
 router.post('/login', login)
-router.post('/signup', verifyEmployeeToken, adminToken, signup)
+// router.post('/signup', verifyEmployeeToken, adminToken, signup)
+router.post('/signup', signup)
+
 
 module.exports = router

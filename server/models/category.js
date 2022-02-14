@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 // Creating Category collection
+
 const categorySchema = new Schema(
   {
     name: { type: String, required: true, unique: true },
@@ -11,5 +12,6 @@ const categorySchema = new Schema(
     timestamps: true
   }
 )
+
 module.exports = categorySchema
 module.exports = mongoose.model('Category', categorySchema)

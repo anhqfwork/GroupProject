@@ -15,7 +15,7 @@ exports.login = async (req, res) => {
 
     const existingEmployee = await Employee.findOne({ email: email })
     if (!existingEmployee) {
-      return res.status(404).json({ msg: 'User does not exist' })
+      return res.status(400).json({ msg: 'User does not exist' })
     }
     const isPasswordMatch = await argon2.verify(existingEmployee.password, password)
     if (!isPasswordMatch) {

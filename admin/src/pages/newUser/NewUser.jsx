@@ -1,67 +1,111 @@
-import React, { useState, useEffect } from "react";
-import "./newUser.css";
-import { Publish } from "@material-ui/icons";
+import React, { useState, useEffect } from 'react'
+import './newUser.css'
+import { Publish } from '@material-ui/icons'
+import { axios } from '../../axios'
+
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+toast.configure()
+
 export default function NewUser() {
-  const [avatar, setAvatar] = useState();
-  useEffect(() => {
-    return () => {
-      avatar && URL.revokeObjectURL(avatar.preview);
+    const [email, setEmail] = useState()
+    const [username, setUsername] = useState()
+    const [name, setName] = useState()
+    const [password, setPassword] = useState()
+    const [confirmedPassword, setConfirmedPassword] = useState()
+
+    const changeEmail = (e) => {
+        setEmail(e.target.value)
     }
-  }, [avatar])
-  const handlePreviewAvatar = (e) => {
-    const file = e.target.files[0];
 
-    file.preview = URL.createObjectURL(file);
+    const changeUsername = (e) => {
+        setUsername(e.target.value)
+    }
 
-    setAvatar(file);
-  };
-  return (
-    <div className="newUser">
-      <h1 className="newUserTitle">New User</h1>
-      <form action="" className="newUserForm">
-        <div className="newUserItem">
-          <label htmlFor="">Username</label>
-          <input type="text" placeholder="john" />
+    const changeName = (e) => {
+        setName(e.target.value)
+    }
+
+    const changePassword = (e) => {
+        setPassword(e.target.value)
+    }
+
+    const changeConfirmedPassword = (e) => {
+        setConfirmedPassword(e.target.value)
+    }
+
+    const handleSubmit = () => {
+        addProduct()
+    }
+
+    const addProduct = async () => {
+        const newUser = {
+            username,
+            name,
+            password,
+            confirmedPassword,
+            email,
+        }
+        const res = await axios
+            .post('api/auth/user/signup', newUser)
+            .catch((err) => console.log(err))
+        if (res && res.data) {
+            console.log(res.data)
+            toast.success('Create User Successfully!', {
+                position: toast.POSITION.TOP_RIGHT,
+                autoClose: 1000,
+            })
+        }
+    }
+
+    return (
+        <div className='newUser'>
+            <h1 className='newUserTitle'>New User</h1>
+            <form action='' className='newUserForm'>
+                <div className='newUserItem'>
+                    <label htmlFor=''>Username</label>
+                    <input
+                        type='text'
+                        placeholder='anhqq'
+                        onChange={changeUsername}
+                    />
+                </div>
+                <div className='newUserItem'>
+                    <label htmlFor=''>Full Name</label>
+                    <input
+                        type='text'
+                        placeholder='John Smith'
+                        onChange={changeName}
+                    />
+                </div>
+                <div className='newUserItem'>
+                    <label htmlFor=''>Email</label>
+                    <input
+                        type='text'
+                        placeholder='john@gmail.com'
+                        onChange={changeEmail}
+                    />
+                </div>
+                <div className='newUserItem'>
+                    <label htmlFor=''>Password</label>
+                    <input
+                        type='text'
+                        placeholder='password'
+                        onChange={changePassword}
+                    />
+                </div>
+                <div className='newUserItem'>
+                    <label htmlFor=''>Confirmed Password</label>
+                    <input
+                        type='text'
+                        placeholder='password'
+                        onChange={changeConfirmedPassword}
+                    />
+                </div>
+            </form>
+            <button className='newUserButton' onClick={() => handleSubmit()}>
+                Create
+            </button>
         </div>
-        <div className="newUserItem">
-          <label htmlFor="">Full Name</label>
-          <input type="text" placeholder="John Smith" />
-        </div>
-        <div className="newUserItem">
-          <label htmlFor="">Email</label>
-          <input type="text" placeholder="john@gmail.com" />
-        </div>
-        <div className="newUserItem">
-          <label htmlFor="">Password</label>
-          <input type="text" placeholder="password" />
-        </div>
-        <div className="newUserItem">
-          <label htmlFor="">Phone</label>
-          <input type="text" placeholder="+1 123 456 78" />
-        </div>
-        <div className="newUserItem">
-          <label htmlFor="">Address</label>
-          <input type="text" placeholder="New York | USA" />
-        </div>
-        <div className="newUserItem">
-          <div className="newUserUpload">
-            {avatar && (
-              <img src={avatar.preview} alt="" className="userCreateImg" />
-            )}
-            <label htmlFor="file">
-              <Publish className="userUpdateIcon" />
-            </label>
-            <input
-              type="file"
-              id="file"
-              placeholder="file"
-              style={{ display: "none" }}
-              onChange={handlePreviewAvatar}
-            />
-          </div>
-        </div>
-      </form>
-      <button className="newUserButton">Create</button>
-    </div>
-  );
+    )
 }
