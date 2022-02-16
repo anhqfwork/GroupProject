@@ -13,6 +13,10 @@ import { createStyles, makeStyles } from '@material-ui/styles'
 import { createTheme, TextField } from '@material-ui/core'
 import { axios } from '../../axios'
 
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+toast.configure()
+
 function escapeRegExp(value) {
     return value.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&')
 }
@@ -123,6 +127,10 @@ export default function UserList() {
         if (res && res.data) {
             console.log(res.data)
             getAllUsers()
+            toast.success('Delete User Successfully!', {
+                position: toast.POSITION.TOP_RIGHT,
+                autoClose: 1000,
+            })
         }
     }
     const columns = [

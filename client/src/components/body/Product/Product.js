@@ -178,7 +178,7 @@ const Product = () => {
                             sx={{ float: 'left' }}
                             size='small'
                         />
-                        <h4>(Sold {product.inDelivered} products)</h4>
+                        {/* <h4>(Sold {product.inDelivered} products)</h4> */}
                     </div>
                     <Grid container spacing={0}>
                         <Grid item xs={8}>

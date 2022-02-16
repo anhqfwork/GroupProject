@@ -169,11 +169,11 @@ const Header = () => {
                         <a href='/products' className='navlink'>
                             Products
                         </a>
-                        <div className='dropdown-contents'>
+                        {/* <div className='dropdown-contents'>
                             {categories.map((cate) => {
                                 return <a href={`/products`}>{cate}</a>
                             })}
-                        </div>
+                        </div> */}
                     </div>
                     <a href='/about' className='navlink'>
                         About

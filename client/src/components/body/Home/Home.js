@@ -16,18 +16,18 @@ import { imgSlide } from '../../../dummyData'
 import { axios } from '../../../axios'
 
 const Home = () => {
-    const [bestSellers, setBestSellers] = useState([])
+    // const [bestSellers, setBestSellers] = useState([])
     const [newestProducts, setNewestProducts] = useState([])
 
-    const getBestSellers = async () => {
-        const res = await axios
-            .get('api/product/func/getFiveNewestProducts')
-            .catch((err) => console.log(err))
-        if (res && res.data) {
-            console.log(res.data)
-            setBestSellers(res.data.product)
-        }
-    }
+    // const getBestSellers = async () => {
+    //     const res = await axios
+    //         .get('api/product/func/getFiveNewestProducts')
+    //         .catch((err) => console.log(err))
+    //     if (res && res.data) {
+    //         console.log(res.data)
+    //         setBestSellers(res.data.product)
+    //     }
+    // }
 
     const getNewestProducts = async () => {
         const res = await axios
@@ -39,7 +39,7 @@ const Home = () => {
     }
 
     useEffect(() => {
-        getBestSellers()
+        // getBestSellers()
         getNewestProducts()
     }, [])
 
@@ -144,7 +144,7 @@ const Home = () => {
                     </Slider>
                 </div>
             </div>
-            <div className='slide-center'>
+            {/* <div className='slide-center'>
                 <div className='title_center'>
                     <h4>book shop publishers</h4>
                     <h2>best sellers</h2>
@@ -160,7 +160,7 @@ const Home = () => {
                         })}
                     </Slider>
                 </div>
-            </div>
+            </div> */}
             <div className='event'>
                 <div>
                     <h3>Shop wide range of collections</h3>

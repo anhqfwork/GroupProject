@@ -76,10 +76,6 @@ function NewProduct() {
             .catch((err) => console.log(err))
         if (res && res.data) {
             addProduct(res.data.url)
-            toast.success('Create Product Successfully!', {
-                position: toast.POSITION.TOP_RIGHT,
-                autoClose: 1000,
-            })
         }
     }
 
@@ -95,11 +91,16 @@ function NewProduct() {
             inStock,
             description,
         }
+        console.log(newProduct)
         const res = await axios
             .post(`api/product`, newProduct)
             .catch((err) => console.log(err))
         if (res && res.data) {
             console.log(res.data)
+            toast.success('Create Product Successfully!', {
+                position: toast.POSITION.TOP_RIGHT,
+                autoClose: 1000,
+            })
         }
     }
 
@@ -126,7 +127,7 @@ function NewProduct() {
                     <label htmlFor=''>Title</label>
                     <input
                         type='text'
-                        placeholder='One Piece Vol 1'
+                        placeholder='Sherlock Holmes'
                         onChange={changeTitle}
                     />
                 </div>
@@ -134,7 +135,7 @@ function NewProduct() {
                     <label htmlFor=''>Author</label>
                     <input
                         type='text'
-                        placeholder='Eiichiro Oda'
+                        placeholder='Conan Doyle'
                         onChange={changeAuthorName}
                     />
                 </div>
@@ -142,7 +143,7 @@ function NewProduct() {
                     <label htmlFor=''>Category</label>
                     <input
                         type='text'
-                        placeholder='Manga'
+                        placeholder='Boxset'
                         onChange={changeCategory}
                     />
                 </div>
@@ -150,7 +151,7 @@ function NewProduct() {
                     <label htmlFor=''>Publisher</label>
                     <input
                         type='text'
-                        placeholder='KimDong'
+                        placeholder='NXB Tre'
                         onChange={changePublisher}
                     />
                 </div>
@@ -158,7 +159,7 @@ function NewProduct() {
                     <label htmlFor=''>Price</label>
                     <input
                         type='text'
-                        placeholder='20'
+                        placeholder='1200000'
                         onChange={changePrice}
                     />
                 </div>
@@ -166,7 +167,7 @@ function NewProduct() {
                     <label htmlFor=''>In Stock</label>
                     <input
                         type='text'
-                        placeholder='10'
+                        placeholder='50'
                         onChange={changeInStock}
                     />
                 </div>
@@ -174,7 +175,7 @@ function NewProduct() {
                     <label htmlFor=''>ISBN</label>
                     <input
                         type='text'
-                        placeholder='OPV1'
+                        placeholder='SLH-BS'
                         onChange={changeIsbn}
                     />
                 </div>

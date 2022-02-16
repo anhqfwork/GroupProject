@@ -234,7 +234,7 @@ const imgSlide = [
     },
 ]
 
-const categories = ['Manga', 'Light Novel', 'Novel', 'Detective']
+const categories = ['Manga', 'Light Novel', 'Novel', 'Boxset']
 const publishers = [
     {
         name:'KimDong',
